@@ -16,7 +16,7 @@ export default function AccessPage() {
           {/* Map */}
           <div className="rounded-2xl overflow-hidden shadow-md h-80 lg:h-full min-h-72">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2894.0!2d141.3279!3d43.2040!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z5YyX5rW35bee55Sw5biC6Iqx55aK77yS5p2h77yR5LiB55uu77yR77yS77yZ!5e0!3m2!1sja!2sjp!4v1700000000000"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2909.7265936143667!2d141.3098238754309!3d43.17326287112894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f0b2444a9636e3d%3A0x80ad07b3c151dc67!2z44CSMDYxLTMyODIg5YyX5rW36YGT55-z54up5biC6Iqx55WU77yS5p2h77yR5LiB55uu77yR77yS77yZ!5e0!3m2!1sja!2sjp!4v1776259006336!5m2!1sja!2sjp"
               width="100%"
               height="100%"
               style={{ border: 0 }}
