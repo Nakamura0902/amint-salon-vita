@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AMINT Salon Vita | 美容・健康サロン 北海道石狩市</title>
+  <meta name="description" content="北海道石狩市の美容・健康サロン AMINT Salon Vita。最新美容機器と丁寧な施術で、内側から輝く美しさを。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <style>
+    /* ===== RESET ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Noto Sans JP', sans-serif; color: var(--text-dark); background: #fff; overflow-x: hidden; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ===== VARIABLES ===== */
+    :root {
+      --white: #ffffff;
+      --off-white: #f8faff;
+      --blue-50: #eff6ff;
+      --blue-100: #dbeafe;
+      --blue-200: #bfdbfe;
+      --blue-300: #93c5fd;
+      --blue-400: #60a5fa;
+      --blue-500: #3b82f6;
+      --blue-600: #2563eb;
+      --blue-700: #1d4ed8;
+      --blue-800: #1e40af;
+      --blue-900: #1e3a8a;
+      --navy: #0d1f3c;
+      --text-dark: #1a2e4a;
+      --text-muted: #5a7899;
+      --ease: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ===== KEYFRAMES ===== */
+    @keyframes fadeInUp    { from { opacity:0; transform:translateY(40px) } to { opacity:1; transform:translateY(0) } }
+    @keyframes fadeIn      { from { opacity:0 } to { opacity:1 } }
+    @keyframes float       { 0%,100% { transform:translateY(0) } 50% { transform:translateY(-18px) } }
+    @keyframes floatOrbit  { 0%,100% { transform:translateY(0) rotate(0deg) } 50% { transform:translateY(-25px) rotate(4deg) } }
+    @keyframes scaleIn     { from { opacity:0; transform:scale(0.88) } to { opacity:1; transform:scale(1) } }
+    @keyframes shimmer     { 0%{ background-position:-200% center } 100%{ background-position:200% center } }
+    @keyframes particleRise{
+      0%   { transform:translateY(100vh) translateX(0px); opacity:0 }
+      10%  { opacity:.8 }
+      90%  { opacity:.6 }
+      100% { transform:translateY(-120px) translateX(20px); opacity:0 }
+    }
+    @keyframes gradLine    { from{width:0} to{width:60px} }
+    @keyframes pulseRing   {
+      0%  { transform:scale(1); opacity:.6 }
+      100%{ transform:scale(1.8); opacity:0 }
+    }
+    @keyframes waveAnim {
+      0%   { d: path("M0,32 C180,60 360,0 540,32 C720,64 900,10 1080,32 L1080,80 L0,80 Z") }
+      50%  { d: path("M0,45 C180,10 360,60 540,45 C720,30 900,60 1080,45 L1080,80 L0,80 Z") }
+      100% { d: path("M0,32 C180,60 360,0 540,32 C720,64 900,10 1080,32 L1080,80 L0,80 Z") }
+    }
+
+    /* ===== SCROLL REVEAL ===== */
+    .reveal       { opacity:0; transform:translateY(36px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+    .reveal-left  { opacity:0; transform:translateX(-50px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+    .reveal-right { opacity:0; transform:translateX(50px);  transition: opacity .8s var(--ease), transform .8s var(--ease); }
+    .reveal-scale { opacity:0; transform:scale(.9);         transition: opacity .8s var(--ease), transform .8s var(--ease); }
+    .reveal.visible, .reveal-left.visible, .reveal-right.visible, .reveal-scale.visible { opacity:1; transform:none; }
+    .d1 { transition-delay:.1s } .d2 { transition-delay:.2s } .d3 { transition-delay:.3s }
+    .d4 { transition-delay:.4s } .d5 { transition-delay:.5s } .d6 { transition-delay:.6s }
+
+    /* ===== NAV ===== */
+    nav {
+      position: fixed; top:0; left:0; right:0; z-index:100;
+      padding: 1.4rem 2rem;
+      transition: padding .4s var(--ease), background .4s var(--ease), box-shadow .4s var(--ease);
+    }
+    nav.scrolled {
+      background: rgba(255,255,255,.93);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 1px 24px rgba(30,58,138,.07);
+      padding: .9rem 2rem;
+    }
+    .nav-inner { max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; }
+    .nav-logo {
+      font-family:'Cormorant Garamond',serif; font-size:1.25rem; letter-spacing:.18em;
+      color:white; transition: color .4s;
+    }
+    nav.scrolled .nav-logo { color: var(--text-dark); }
+    .nav-links { display:flex; gap:2rem; list-style:none; }
+    .nav-links a {
+      font-size:.7rem; letter-spacing:.2em; text-transform:uppercase;
+      color:rgba(255,255,255,.85); transition: color .3s;
+      position:relative;
+    }
+    .nav-links a::after {
+      content:''; position:absolute; bottom:-3px; left:0; width:0; height:1px;
+      background: var(--blue-400); transition: width .3s;
+    }
+    .nav-links a:hover::after { width:100%; }
+    nav.scrolled .nav-links a { color: var(--text-muted); }
+    nav.scrolled .nav-links a:hover { color: var(--blue-600); }
+
+    .ham { display:none; flex-direction:column; gap:5px; cursor:pointer; }
+    .ham span { display:block; width:24px; height:1.5px; background:white; transition: all .35s; }
+    nav.scrolled .ham span { background: var(--text-dark); }
+    .ham.open span:nth-child(1) { transform:translateY(6.5px) rotate(45deg); }
+    .ham.open span:nth-child(2) { opacity:0; }
+    .ham.open span:nth-child(3) { transform:translateY(-6.5px) rotate(-45deg); }
+
+    .mob-menu {
+      display:none; position:fixed; inset:0; background:var(--navy); z-index:99;
+      flex-direction:column; align-items:center; justify-content:center; gap:2.5rem;
+    }
+    .mob-menu.open { display:flex; animation: fadeIn .3s ease both; }
+    .mob-menu a { font-family:'Cormorant Garamond',serif; font-size:2rem; color:white; letter-spacing:.08em; }
+
+    @media(max-width:768px){ .ham{display:flex} .nav-links{display:none} }
+
+    /* ===== HERO ===== */
+    #hero {
+      position:relative; height:100vh; min-height:580px;
+      display:flex; align-items:center; justify-content:center; overflow:hidden;
+    }
+    .hero-bg {
+      position:absolute; inset:0;
+      background: url('public/images/hero-bg.jpg') center/cover no-repeat;
+      transform: scale(1.12);
+      will-change: transform;
+    }
+    .hero-overlay {
+      position:absolute; inset:0;
+      background: linear-gradient(135deg, rgba(8,18,50,.7) 0%, rgba(20,55,160,.38) 55%, rgba(8,18,50,.65) 100%);
+    }
+    /* decorative circles */
+    .hero-ring {
+      position:absolute; border-radius:50%;
+      border: 1px solid rgba(147,197,253,.18);
+      pointer-events:none;
+    }
+    /* particles */
+    .hero-particles { position:absolute; inset:0; pointer-events:none; overflow:hidden; }
+    .particle {
+      position:absolute; border-radius:50%;
+      background: rgba(147,197,253,.7);
+      animation: particleRise linear infinite;
+    }
+
+    .hero-content {
+      position:relative; z-index:10;
+      text-align:center; color:white; padding:0 1.5rem; max-width:720px;
+    }
+    .hero-eyebrow {
+      display:inline-block; font-size:.65rem; letter-spacing:.45em; text-transform:uppercase;
+      color: var(--blue-300); margin-bottom:1.5rem;
+      animation: fadeInUp .8s ease .2s both;
+    }
+    .hero-h1 {
+      font-family:'Noto Serif JP',serif; font-weight:300;
+      font-size: clamp(1.9rem,5vw,3.4rem); line-height:1.65;
+      margin-bottom:1.5rem;
+      animation: fadeInUp .8s ease .4s both;
+    }
+    .hero-h1 em {
+      font-style:normal; font-weight:600;
+      background: linear-gradient(120deg, var(--blue-300), #fff 60%);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+    }
+    .hero-sub {
+      font-size:.92rem; color:rgba(255,255,255,.75); line-height:2;
+      margin-bottom:2.5rem;
+      animation: fadeInUp .8s ease .6s both;
+    }
+    .hero-btns {
+      display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;
+      animation: fadeInUp .8s ease .8s both;
+    }
+    .hero-scroll-ind {
+      position:absolute; bottom:2rem; left:50%; transform:translateX(-50%);
+      z-index:10; display:flex; flex-direction:column; align-items:center; gap:.5rem;
+      animation: fadeIn 1s ease 1.3s both;
+    }
+    .hero-scroll-ind span { font-size:.55rem; letter-spacing:.4em; text-transform:uppercase; color:rgba(255,255,255,.45); }
+    .scroll-bar { width:1px; height:56px; background:linear-gradient(to bottom,rgba(255,255,255,.5),transparent); animation:float 2.2s ease-in-out infinite; }
+
+    /* ===== BUTTONS ===== */
+    .btn-p {
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:.85rem 2.4rem;
+      background: linear-gradient(135deg, var(--blue-600), var(--blue-700));
+      color:white; font-size:.82rem; letter-spacing:.08em; border-radius:50px;
+      font-family:'Noto Sans JP',sans-serif; border:none; cursor:pointer;
+      transition: transform .3s, box-shadow .3s;
+    }
+    .btn-p:hover { transform:translateY(-2px); box-shadow:0 10px 28px rgba(37,99,235,.38); }
+    .btn-o-w {
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:.85rem 2.4rem;
+      border:1.5px solid rgba(255,255,255,.65); color:white;
+      font-size:.82rem; letter-spacing:.08em; border-radius:50px;
+      font-family:'Noto Sans JP',sans-serif; cursor:pointer;
+      transition: background .3s, border-color .3s;
+    }
+    .btn-o-w:hover { background:rgba(255,255,255,.12); border-color:white; }
+    .btn-o-b {
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:.85rem 2.4rem;
+      border:1.5px solid var(--blue-600); color:var(--blue-600);
+      font-size:.82rem; letter-spacing:.08em; border-radius:50px;
+      font-family:'Noto Sans JP',sans-serif; cursor:pointer;
+      transition: all .3s;
+    }
+    .btn-o-b:hover { background:var(--blue-600); color:white; transform:translateY(-2px); box-shadow:0 8px 24px rgba(37,99,235,.28); }
+
+    /* ===== SECTION COMMON ===== */
+    section { padding:7rem 1.5rem; }
+    .container { max-width:1200px; margin:0 auto; }
+    .s-label {
+      display:block; font-family:'Cormorant Garamond',serif; font-size:.72rem;
+      letter-spacing:.45em; text-transform:uppercase; color:var(--blue-500); margin-bottom:.7rem;
+    }
+    .s-title {
+      font-family:'Noto Serif JP',serif; font-weight:300;
+      font-size: clamp(1.55rem,3vw,2.1rem); color:var(--text-dark); margin-bottom:1.4rem;
+    }
+    .s-line {
+      height:1.5px; width:0; background:linear-gradient(to right,var(--blue-500),var(--blue-300));
+      margin-bottom:4rem; transition: width 1s ease;
+    }
+    .s-line.visible { width:60px; }
+    .s-line.cx { margin-left:auto; margin-right:auto; }
+
+    /* ===== WAVE DIVIDER ===== */
+    .wave-wrap { line-height:0; overflow:hidden; }
+    .wave-wrap svg { display:block; width:100%; }
+
+    /* ===== CONCEPT ===== */
+    #concept {
+      background:var(--off-white); position:relative; overflow:hidden;
+    }
+    #concept::before {
+      content:'VITA'; position:absolute; font-family:'Cormorant Garamond',serif;
+      font-size:22vw; font-style:italic; color:rgba(37,99,235,.028);
+      top:50%; left:50%; transform:translate(-50%,-50%); white-space:nowrap; pointer-events:none;
+    }
+    .concept-grid { display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:center; }
+    @media(max-width:900px){ .concept-grid{grid-template-columns:1fr;gap:3rem;} }
+    .concept-img-wrap {
+      position:relative; aspect-ratio:4/5; border-radius:2px; overflow:hidden;
+    }
+    .concept-img-wrap img { width:100%; height:100%; object-fit:cover; transition:transform .8s ease; }
+    .concept-img-wrap:hover img { transform:scale(1.05); }
+    .concept-img-wrap::after {
+      content:''; position:absolute; inset:-14px;
+      border:1px solid var(--blue-200); border-radius:2px; z-index:-1;
+      pointer-events:none;
+    }
+
+    /* ===== FEATURES ===== */
+    #features { background:white; }
+    .feat-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; }
+    @media(max-width:900px){ .feat-grid{grid-template-columns:1fr;} }
+    @media(min-width:560px) and (max-width:900px){ .feat-grid{grid-template-columns:repeat(2,1fr);} }
+    .feat-card {
+      padding:2.5rem 2rem; background:var(--off-white); border-radius:4px;
+      position:relative; overflow:hidden;
+      border:1px solid transparent;
+      transition: transform .4s var(--ease), box-shadow .4s, border-color .4s;
+    }
+    .feat-card::before {
+      content:''; position:absolute; top:0; left:0; right:0; height:3px;
+      background:linear-gradient(to right,var(--blue-500),var(--blue-300));
+      transform:scaleX(0); transform-origin:left; transition:transform .4s;
+    }
+    .feat-card:hover { transform:translateY(-5px); box-shadow:0 20px 55px rgba(37,99,235,.08); border-color:var(--blue-100); }
+    .feat-card:hover::before { transform:scaleX(1); }
+    .feat-icon {
+      width:50px; height:50px; border-radius:50%;
+      background:linear-gradient(135deg,var(--blue-100),var(--blue-200));
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.25rem; margin-bottom:1.5rem;
+    }
+    .feat-card h3 { font-family:'Noto Serif JP',serif; font-size:1.05rem; font-weight:400; color:var(--text-dark); margin-bottom:.75rem; }
+    .feat-card p  { font-size:.83rem; color:var(--text-muted); line-height:1.95; }
+
+    /* ===== STATS ===== */
+    #stats {
+      background:linear-gradient(135deg,var(--blue-800),var(--blue-900));
+      padding:5rem 1.5rem; position:relative; overflow:hidden;
+    }
+    #stats::before,#stats::after {
+      content:''; position:absolute; border-radius:50%;
+      border:1px solid rgba(255,255,255,.05);
+    }
+    #stats::before { width:600px;height:600px;top:-280px;right:-180px; }
+    #stats::after  { width:380px;height:380px;bottom:-170px;left:-140px; }
+    .stats-grid {
+      display:grid; grid-template-columns:repeat(4,1fr); gap:3rem;
+      text-align:center; position:relative; z-index:1;
+    }
+    @media(max-width:700px){ .stats-grid{grid-template-columns:repeat(2,1fr);gap:2.5rem;} }
+    .stat-num { font-family:'Cormorant Garamond',serif; font-size:3rem; font-weight:300; color:white; line-height:1; margin-bottom:.5rem; }
+    .stat-unit { font-size:1.1rem; color:var(--blue-300); }
+    .stat-lbl { font-size:.68rem; color:rgba(255,255,255,.45); letter-spacing:.15em; margin-top:.35rem; }
+
+    /* ===== MENU ===== */
+    #menu { background:var(--blue-50); }
+    .menu-notice {
+      background:rgba(37,99,235,.05); border:1px solid var(--blue-200);
+      border-radius:8px; padding:1rem 1.5rem; text-align:center;
+      font-size:.82rem; color:var(--text-muted); margin-bottom:2.5rem;
+    }
+    .menu-tabs { display:flex; gap:.5rem; flex-wrap:wrap; justify-content:center; margin-bottom:3rem; }
+    .tab-btn {
+      padding:.5rem 1.4rem; border-radius:50px; font-size:.78rem; letter-spacing:.05em;
+      border:1.5px solid var(--blue-200); background:white; color:var(--text-muted);
+      cursor:pointer; transition:all .3s; font-family:'Noto Sans JP',sans-serif;
+    }
+    .tab-btn:hover { border-color:var(--blue-400); color:var(--blue-600); }
+    .tab-btn.active { background:var(--blue-600); border-color:var(--blue-600); color:white; box-shadow:0 4px 14px rgba(37,99,235,.28); }
+    .menu-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+    @media(max-width:1000px){ .menu-grid{grid-template-columns:repeat(2,1fr);} }
+    @media(max-width:600px) { .menu-grid{grid-template-columns:1fr;} }
+    .menu-card {
+      background:white; border-radius:8px; padding:1.75rem;
+      border:1px solid transparent; position:relative; overflow:hidden;
+      transition: transform .35s var(--ease), box-shadow .35s, border-color .35s;
+    }
+    .menu-card::after {
+      content:''; position:absolute; bottom:0; left:0; right:0; height:2px;
+      background:linear-gradient(to right,var(--blue-500),var(--blue-300));
+      transform:scaleX(0); transform-origin:left; transition:transform .4s;
+    }
+    .menu-card:hover { transform:translateY(-3px); box-shadow:0 14px 38px rgba(37,99,235,.1); border-color:var(--blue-100); }
+    .menu-card:hover::after { transform:scaleX(1); }
+    .menu-card-hd { display:flex; align-items:flex-start; justify-content:space-between; gap:.75rem; margin-bottom:.7rem; }
+    .menu-card h3 { font-family:'Noto Serif JP',serif; font-size:.98rem; font-weight:400; color:var(--text-dark); }
+    .menu-tag {
+      font-size:.62rem; background:linear-gradient(135deg,var(--blue-100),var(--blue-200));
+      color:var(--blue-800); padding:.22rem .7rem; border-radius:50px; white-space:nowrap; font-weight:500;
+    }
+    .menu-time  { font-size:.73rem; color:var(--blue-500); margin-bottom:.4rem; }
+    .menu-price { font-size:.73rem; color:var(--text-muted); margin-bottom:.75rem; }
+    .menu-desc  { font-size:.8rem; color:var(--text-muted); line-height:1.85; }
+    .menu-card.hidden { display:none; }
+
+    /* ===== GALLERY ===== */
+    #gallery { background:white; }
+    .gal-grid {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      grid-template-rows:auto;
+      gap:.9rem;
+    }
+    @media(max-width:700px){ .gal-grid{grid-template-columns:repeat(2,1fr);} }
+    .gal-item { position:relative; overflow:hidden; border-radius:3px; cursor:pointer; }
+    .gal-item:nth-child(1) { grid-row:span 2; }
+    .gal-item img {
+      width:100%; height:100%; object-fit:cover; display:block;
+      min-height:190px; transition:transform .7s var(--ease);
+    }
+    .gal-item:nth-child(1) img { min-height:380px; }
+    .gal-item:hover img { transform:scale(1.08); }
+    .gal-caption {
+      position:absolute; inset:0;
+      background:linear-gradient(to top,rgba(10,25,70,.55),transparent);
+      opacity:0; transition:opacity .4s;
+      display:flex; align-items:flex-end; padding:1.25rem;
+    }
+    .gal-item:hover .gal-caption { opacity:1; }
+    .gal-caption span { color:white; font-size:.78rem; font-family:'Noto Serif JP',serif; letter-spacing:.08em; }
+
+    /* ===== PRODUCTS ===== */
+    #products { background:var(--off-white); }
+    .prod-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; }
+    @media(max-width:760px){ .prod-grid{grid-template-columns:1fr;} }
+    @media(min-width:480px) and (max-width:760px){ .prod-grid{grid-template-columns:repeat(2,1fr);} }
+    .prod-card { background:white; border-radius:4px; overflow:hidden; transition:transform .4s var(--ease), box-shadow .4s; }
+    .prod-card:hover { transform:translateY(-6px); box-shadow:0 20px 48px rgba(37,99,235,.11); }
+    .prod-img { aspect-ratio:4/3; overflow:hidden; }
+    .prod-img img { width:100%; height:100%; object-fit:cover; transition:transform .6s ease; }
+    .prod-card:hover .prod-img img { transform:scale(1.07); }
+    .prod-body { padding:1.4rem; }
+    .prod-body h3 { font-family:'Noto Serif JP',serif; font-size:.92rem; color:var(--text-dark); margin-bottom:.5rem; }
+    .prod-body p  { font-size:.78rem; color:var(--text-muted); line-height:1.8; }
+    a.prod-card { display:block; color:inherit; }
+    .prod-hint {
+      display:inline-flex; align-items:center; gap:.35rem;
+      font-size:.72rem; color:var(--blue-500); margin-top:1rem;
+      transition: gap .3s;
+    }
+    .prod-card:hover .prod-hint { gap:.6rem; }
+
+    /* ===== ACCESS ===== */
+    #access { background:white; }
+    .access-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start; }
+    @media(max-width:900px){ .access-grid{grid-template-columns:1fr;gap:3rem;} }
+    .map-wrap {
+      border-radius:4px; overflow:hidden;
+      box-shadow:0 20px 60px rgba(30,64,175,.1);
+      height:400px;
+    }
+    .map-wrap iframe { width:100%; height:100%; border:0; }
+    .access-title { font-family:'Cormorant Garamond',serif; font-size:1.75rem; font-style:italic; color:var(--text-dark); margin-bottom:2rem; letter-spacing:.06em; }
+    .access-dl { list-style:none; display:flex; flex-direction:column; gap:1.6rem; }
+    .access-dl dt { font-size:.62rem; letter-spacing:.32em; text-transform:uppercase; color:var(--blue-500); margin-bottom:.35rem; }
+    .access-dl dd { font-size:.92rem; color:var(--text-dark); line-height:1.75; }
+    .access-dl a { color:var(--blue-600); transition:color .3s; }
+    .access-dl a:hover { color:var(--blue-800); }
+    .access-btns { display:flex; gap:1rem; flex-wrap:wrap; margin-top:2.2rem; }
+
+    /* ===== CONTACT BANNER ===== */
+    #contact {
+      background:linear-gradient(135deg,var(--blue-700) 0%,var(--blue-900) 100%);
+      padding:6rem 1.5rem; text-align:center; position:relative; overflow:hidden;
+    }
+    #contact::before {
+      content:''; position:absolute; width:900px; height:900px; border-radius:50%;
+      background:rgba(255,255,255,.025); top:-500px; left:50%; transform:translateX(-50%);
+    }
+    .ct-label { display:block; font-family:'Cormorant Garamond',serif; font-size:.72rem; letter-spacing:.45em; text-transform:uppercase; color:var(--blue-300); margin-bottom:1rem; }
+    .ct-title { font-family:'Noto Serif JP',serif; font-size:clamp(1.45rem,3vw,2rem); font-weight:300; color:white; margin-bottom:1rem; }
+    .ct-desc  { font-size:.87rem; color:rgba(255,255,255,.58); line-height:2; margin-bottom:2.5rem; }
+    .ct-btns  { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+    .btn-tel {
+      display:inline-flex; align-items:center; gap:.5rem;
+      padding:.85rem 2.4rem; border:1.5px solid rgba(255,255,255,.4); color:white;
+      font-size:.82rem; border-radius:50px; transition:all .3s;
+      font-family:'Noto Sans JP',sans-serif; letter-spacing:.06em;
+    }
+    .btn-tel:hover { background:rgba(255,255,255,.1); border-color:white; }
+    .btn-ig {
+      display:inline-flex; align-items:center; gap:.5rem;
+      padding:.85rem 2.4rem; border:none; cursor:pointer;
+      background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);
+      color:white; font-size:.82rem; border-radius:50px; transition:all .3s;
+      font-family:'Noto Sans JP',sans-serif; letter-spacing:.06em;
+    }
+    .btn-ig:hover { transform:translateY(-2px); box-shadow:0 10px 28px rgba(131,58,180,.38); }
+
+    /* ===== FOOTER ===== */
+    footer { background:var(--navy); padding:3.5rem 1.5rem 2rem; }
+    .ft-inner { max-width:1200px; margin:0 auto; }
+    .ft-top {
+      display:flex; justify-content:space-between; align-items:flex-start;
+      gap:3rem; flex-wrap:wrap;
+      padding-bottom:2rem; border-bottom:1px solid rgba(255,255,255,.06); margin-bottom:2rem;
+    }
+    .ft-brand { display:block; font-family:'Cormorant Garamond',serif; font-size:1.35rem; font-style:italic; color:white; letter-spacing:.12em; margin-bottom:.6rem; }
+    .ft-tag   { font-size:.72rem; color:rgba(255,255,255,.3); letter-spacing:.1em; }
+    .ft-links { display:flex; gap:1.5rem; flex-wrap:wrap; align-items:center; }
+    .ft-links a { font-size:.72rem; letter-spacing:.1em; color:rgba(255,255,255,.35); transition:color .3s; }
+    .ft-links a:hover { color:rgba(255,255,255,.8); }
+    .ft-copy { font-size:.68rem; letter-spacing:.1em; text-align:center; color:rgba(255,255,255,.25); }
+
+    /* ===== LIGHTBOX ===== */
+    .lb { position:fixed; inset:0; background:rgba(0,0,0,.92); z-index:200; display:none; align-items:center; justify-content:center; padding:1.5rem; }
+    .lb.open { display:flex; animation:fadeIn .25s ease; }
+    .lb img { max-width:90vw; max-height:90vh; object-fit:contain; border-radius:2px; }
+    .lb-close { position:absolute; top:1.5rem; right:1.5rem; color:white; font-size:2rem; cursor:pointer; opacity:.65; transition:opacity .2s; line-height:1; }
+    .lb-close:hover { opacity:1; }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">AMINT Salon Vita</a>
+    <ul class="nav-links">
+      <li><a href="#concept">About</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#access">Access</a></li>
+      <li><a href="https://amint.co.jp/" target="_blank" rel="noopener noreferrer" style="color:var(--blue-300);">本社サイト ↗</a></li>
+    </ul>
+    <div class="ham" id="ham"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mobMenu">
+  <a href="#concept" class="ml">About</a>
+  <a href="#menu" class="ml">Menu</a>
+  <a href="#gallery" class="ml">Gallery</a>
+  <a href="#products" class="ml">Products</a>
+  <a href="#access" class="ml">Access</a>
+  <a href="tel:08040400484" class="ml">Tel</a>
+  <a href="https://amint.co.jp/" target="_blank" rel="noopener noreferrer" class="ml" style="font-size:1.4rem;color:var(--blue-300);">本社サイト ↗</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<section id="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+
+  <!-- decorative rings -->
+  <div class="hero-ring" style="width:500px;height:500px;top:5%;left:-160px;animation:floatOrbit 9s ease-in-out infinite;"></div>
+  <div class="hero-ring" style="width:280px;height:280px;bottom:12%;right:-60px;animation:floatOrbit 7s ease-in-out infinite;animation-delay:2s;"></div>
+  <div class="hero-ring" style="width:140px;height:140px;top:28%;right:8%;animation:floatOrbit 11s ease-in-out infinite;animation-delay:1s;"></div>
+
+  <!-- particles -->
+  <div class="hero-particles" id="particles"></div>
+
+  <div class="hero-content">
+    <span class="hero-eyebrow">AMINT Salon Vita &nbsp;—&nbsp; Ishikari, Hokkaido</span>
+    <h1 class="hero-h1">
+      美と健康を通して、<br>
+      <em>豊かさ</em>を目指す。
+    </h1>
+    <p class="hero-sub">
+      北海道石狩市の美容・健康サロン。<br>
+      最新機器と丁寧な施術で、内側から輝く美しさを。
+    </p>
+    <div class="hero-btns">
+      <a href="#menu" class="btn-p">メニューを見る</a>
+      <a href="#access" class="btn-o-w">アクセス・お問い合わせ</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll-ind">
+    <span>Scroll</span>
+    <div class="scroll-bar"></div>
+  </div>
+</section>
+
+<!-- WAVE -->
+<div class="wave-wrap" style="background:var(--off-white);">
+  <svg viewBox="0 0 1200 80" preserveAspectRatio="none" height="80" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,40 C200,80 400,0 600,40 C800,80 1000,10 1200,40 L1200,80 L0,80 Z" fill="white"/>
+  </svg>
+</div>
+
+<!-- ===== CONCEPT ===== -->
+<section id="concept">
+  <div class="container">
+    <div class="concept-grid">
+      <div class="reveal-left">
+        <div class="concept-img-wrap">
+          <img src="public/images/salon-room-2.jpg" alt="サロン施術室">
+        </div>
+      </div>
+      <div class="reveal-right">
+        <span class="s-label">Concept</span>
+        <h2 class="s-title">コンセプト</h2>
+        <div class="s-line"></div>
+        <p style="font-size:.92rem;color:var(--text-muted);line-height:2.1;">
+          AMINT Salon Vita は、「美と健康を通して豊かさを目指す」という理念のもと、
+          北海道石狩市に生まれた美容・健康サロンです。<br><br>
+          最新の美容機器による高品質なトリートメントと、
+          セラピストによる丁寧なハンドケアを組み合わせることで、
+          お客様一人ひとりの内側から輝く美しさをサポートします。<br><br>
+          施術の時間が、日常の喧騒から離れ、
+          自分自身を大切にするひとときになれるよう。
+          スタッフ一同、心を込めてお迎えいたします。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAVE -->
+<div class="wave-wrap" style="background:white;">
+  <svg viewBox="0 0 1200 80" preserveAspectRatio="none" height="80" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,30 C300,70 600,0 900,40 C1050,60 1150,20 1200,30 L1200,80 L0,80 Z" fill="var(--off-white)"/>
+  </svg>
+</div>
+
+<!-- ===== FEATURES ===== -->
+<section id="features">
+  <div class="container">
+    <div style="text-align:center;" class="reveal">
+      <span class="s-label">Features</span>
+      <h2 class="s-title">AMINT Salon Vita の特徴</h2>
+      <div class="s-line cx"></div>
+    </div>
+    <div class="feat-grid">
+      <div class="feat-card reveal d1">
+        <div class="feat-icon">✦</div>
+        <h3>ハンドマッサージ</h3>
+        <p>全身・フェイス・ヘッド・フット。熟練のセラピストによる丁寧な施術で、心身の疲れを癒します。</p>
+      </div>
+      <div class="feat-card reveal d2">
+        <div class="feat-icon">◈</div>
+        <h3>最新美容機器</h3>
+        <p>Refine SurRealをはじめとした最先端の業務用美容機器で、内側から輝く美しさをサポートします。</p>
+      </div>
+      <div class="feat-card reveal d3">
+        <div class="feat-icon">❋</div>
+        <h3>高品質コスメ</h3>
+        <p>DIFACE・LUVIA RUSHE・A-mint Cosmetics など、厳選されたブランドコスメをご用意しています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STATS ===== -->
+<section id="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="reveal d1">
+        <div class="stat-num"><span class="cnt" data-t="10">0</span><span class="stat-unit">+</span></div>
+        <div class="stat-lbl">機器の機能数</div>
+      </div>
+      <div class="reveal d2">
+        <div class="stat-num"><span class="cnt" data-t="11">0</span><span class="stat-unit">種</span></div>
+        <div class="stat-lbl">施術メニュー</div>
+      </div>
+      <div class="reveal d3">
+        <div class="stat-num"><span class="cnt" data-t="3">0</span><span class="stat-unit">ブランド</span></div>
+        <div class="stat-lbl">取り扱いコスメ</div>
+      </div>
+      <div class="reveal d4">
+        <div class="stat-num"><span class="cnt" data-t="100">0</span><span class="stat-unit">%</span></div>
+        <div class="stat-lbl">完全プライベート</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MENU ===== -->
+<section id="menu">
+  <div class="container">
+    <div style="text-align:center;" class="reveal">
+      <span class="s-label">Menu</span>
+      <h2 class="s-title">メニュー</h2>
+      <div class="s-line cx"></div>
+    </div>
+    <div class="menu-notice reveal">
+      料金はメニューの組み合わせやコース内容により異なります。
+      詳しくはお電話またはInstagramよりお気軽にお問い合わせください。
+    </div>
+    <div class="menu-tabs reveal">
+      <button class="tab-btn active" data-tab="all">すべて</button>
+      <button class="tab-btn" data-tab="face">フェイス</button>
+      <button class="tab-btn" data-tab="body">ボディ</button>
+      <button class="tab-btn" data-tab="head">ヘッド</button>
+      <button class="tab-btn" data-tab="device">美容機器</button>
+    </div>
+    <div class="menu-grid" id="menuGrid">
+      <div class="menu-card reveal d1" data-cat="face">
+        <div class="menu-card-hd"><h3>フェイス SurReal</h3><span class="menu-tag">人気No.1</span></div>
+        <p class="menu-time">所要時間：40分〜</p><p class="menu-price">料金：お問い合わせください</p>
+        <p class="menu-desc">フェイスソニック・EMS・イオン導入を組み合わせた顔専用トータルトリートメント。</p>
+      </div>
+      <div class="menu-card reveal d2" data-cat="face">
+        <div class="menu-card-hd"><h3>クールフェイス</h3></div>
+        <p class="menu-time">所要時間：30分〜</p><p class="menu-price">料金：お問い合わせください</p>
+        <p class="menu-desc">冷却効果でお肌を引き締め、毛穴の目立ちにくいすっきりとした素肌へ。</p>
+      </div>
+      <div class="menu-card reveal d3" data-cat="face">
+        <div class="menu-card-hd"><h3>パーフェクトフェイシャル</h3></div>
+        <p class="menu-time">所要時間：50分〜</p><p class="menu-price">料金：お問い合わせください</p>
+        <p class="menu-desc">フェイスソニック × EMS の複合トリートメントで、リフトアップ効果を追求。</p>
+      </div>
+      <div class="menu-card reveal d1" data-cat="body">
+        <div class="menu-card-hd"><h3>ボディ SurReal</h3><span class="menu-tag">おすすめ</span></div>
+        <p class="menu-time">所要時間：60分〜</p><p class="menu-price">料金：お問い合わせください</p>
+        <p class="menu-desc">キャビテーション・ラジオ波・セルラーボディで、むくみ・セルライトに集中アプローチ。</p>
+      </div>
+      <div class="menu-card reveal d2" data-cat="body">
+        <div class="menu-card-hd"><h3>トリプル複合ボディ</h3></div>
+        <p class="menu-time">所要時間：60分〜</p><p class="menu-price">料金：お問い合わせください</p>
+        <p class="menu-desc">Wボディソニック × A・B × キャビテーション × EMSの「インパクト・トリートメント」。</p>
+      </div>
+      <div class="menu-card reveal d3" data-cat="body">
+        <div class="menu-card-hd"><h3>全身ハンドリンパ</h3></div>
+        <p class="menu-time">所要時間：60分〜</p><p class="menu-price">料金：お問い合わせください</p>
+        <p class="menu-desc">全身のリンパの流れを整え、老廃物を流す本格ハンドマッサージ。</p>
+      </div>
+      <div class="menu-card reveal d4" data-cat="body">
+        <div class="menu-card-hd"><h3>レッグスペシャル</h3></div>
+        <p class="menu-time">所要時間：40分〜</p><p class="menu-price">料金：お問い合わせください</p>
+        <p class="menu-desc">脚全体のむくみ・冷えにアプローチ。ふくらはぎ・太もも・足裏を重点ケア。</p>
+      </div>
+      <div class="menu-card reveal d1" data-cat="head">
+        <div class="menu-card-hd"><h3>ヘッドスパ</h3></div>
+        <p class="menu-time">所要時間：30分〜</p><p class="menu-price">料金：お問い合わせください</p>
+        <p class="menu-desc">頭皮マッサージで血行を促進。日頃のストレスや頭部の疲れをほぐします。</p>
+      </div>
+      <div class="menu-card reveal d2" data-cat="head">
+        <div class="menu-card-hd"><h3>ヘッド＋ネック</h3></div>
+        <p class="menu-time">所要時間：40分〜</p><p class="menu-price">料金：お問い合わせください</p>
+        <p class="menu-desc">頭部から首・肩にかけて丁寧にほぐすコース。デスクワークの方に特に人気。</p>
+      </div>
+      <div class="menu-card reveal d1" data-cat="device">
+        <div class="menu-card-hd"><h3>Refine SurReal 体験コース</h3><span class="menu-tag">初回限定</span></div>
+        <p class="menu-time">所要時間：30分〜</p><p class="menu-price">料金：お問い合わせください</p>
+        <p class="menu-desc">初めての方向け。最新美容機器「Refine SurReal」の効果を体験できる入門コース。</p>
+      </div>
+      <div class="menu-card reveal d2" data-cat="device">
+        <div class="menu-card-hd"><h3>BODYWAVE EX</h3></div>
+        <p class="menu-time">所要時間：20分〜</p><p class="menu-price">料金：お問い合わせください</p>
+        <p class="menu-desc">ボディウェーブEXによる全身の筋肉へのアプローチ。流した後のすっきり感が魅力。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section id="gallery">
+  <div class="container">
+    <div style="text-align:center;" class="reveal">
+      <span class="s-label">Gallery</span>
+      <h2 class="s-title">ギャラリー</h2>
+      <div class="s-line cx"></div>
+    </div>
+    <div class="gal-grid">
+      <div class="gal-item reveal">
+        <img src="public/images/salon-room-1.jpg" alt="サロン施術室">
+        <div class="gal-caption"><span>サロン施術室</span></div>
+      </div>
+      <div class="gal-item reveal d1">
+        <img src="public/images/treatment-face.jpg" alt="フェイストリートメント">
+        <div class="gal-caption"><span>フェイストリートメント</span></div>
+      </div>
+      <div class="gal-item reveal d2">
+        <img src="public/images/treatment-body.jpg" alt="ボディトリートメント">
+        <div class="gal-caption"><span>ボディトリートメント</span></div>
+      </div>
+      <div class="gal-item reveal d3">
+        <img src="public/images/salon-room-3.jpg" alt="リラクゼーション空間">
+        <div class="gal-caption"><span>リラクゼーション空間</span></div>
+      </div>
+      <div class="gal-item reveal d4">
+        <img src="public/images/treatment-leg.jpg" alt="レッグトリートメント">
+        <div class="gal-caption"><span>レッグトリートメント</span></div>
+      </div>
+      <div class="gal-item reveal d5">
+        <img src="public/images/treatment-head.jpg" alt="ヘッドトリートメント">
+        <div class="gal-caption"><span>ヘッドトリートメント</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRODUCTS ===== -->
+<section id="products">
+  <div class="container">
+    <div style="text-align:center;" class="reveal">
+      <span class="s-label">Products</span>
+      <h2 class="s-title">取り扱い商品</h2>
+      <div class="s-line cx"></div>
+    </div>
+    <div class="prod-grid">
+      <a href="https://amint.co.jp/amintcosme/" target="_blank" rel="noopener noreferrer" class="prod-card reveal d1">
+        <div class="prod-img"><img src="public/images/product-cosmetics.jpg" alt="A-mint Cosmetics"></div>
+        <div class="prod-body">
+          <h3>A-mint Cosmetics</h3>
+          <p>サロン開発のオリジナルコスメライン。肌に寄り添う成分で、毎日のスキンケアをサポート。</p>
+          <span class="prod-hint">詳細を見る →</span>
+        </div>
+      </a>
+      <a href="https://amint.co.jp/diface-essence/" target="_blank" rel="noopener noreferrer" class="prod-card reveal d2">
+        <div class="prod-img"><img src="public/images/product-diface.jpg" alt="DIFACE"></div>
+        <div class="prod-body">
+          <h3>DIFACE</h3>
+          <p>独自開発の高機能フェイスケアブランド。日本の美意識を大切にした繊細な処方が特徴。</p>
+          <span class="prod-hint">詳細を見る →</span>
+        </div>
+      </a>
+      <a href="https://store.amint.co.jp/products/list?category_id=96" target="_blank" rel="noopener noreferrer" class="prod-card reveal d3">
+        <div class="prod-img"><img src="public/images/product-supplement.jpg" alt="サプリメント"></div>
+        <div class="prod-body">
+          <h3>LUVIA RUSHE サプリメント</h3>
+          <p>内側からの美容をサポートするサプリメント。外からの施術と合わせてトータルケア。</p>
+          <span class="prod-hint">詳細を見る →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ACCESS ===== -->
+<section id="access">
+  <div class="container">
+    <div style="text-align:center;" class="reveal">
+      <span class="s-label">Access</span>
+      <h2 class="s-title">アクセス</h2>
+      <div class="s-line cx"></div>
+    </div>
+    <div class="access-grid">
+      <div class="reveal-left">
+        <div class="map-wrap">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2909.7265936143667!2d141.3098238754309!3d43.17326287112894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f0b2444a9636e3d%3A0x80ad07b3c151dc67!2z44CSMDYxLTMyODIg5YyX5rW36YGT55-z54up5biC6Iqx55WU77yS5p2h77yR5LiB55uu77yR77yS77yZ!5e0!3m2!1sja!2sjp!4v1776259006336!5m2!1sja!2sjp"
+            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="AMINT Salon Vita アクセスマップ">
+          </iframe>
+        </div>
+      </div>
+      <div class="reveal-right">
+        <p class="access-title">AMINT Salon Vita</p>
+        <dl class="access-dl">
+          <div><dt>住所</dt><dd>〒061-3243<br>北海道石狩市花畔2条1丁目129</dd></div>
+          <div><dt>電話番号</dt><dd><a href="tel:08040400484">080-4040-0484</a></dd></div>
+          <div><dt>営業時間</dt><dd>管理者と要相談<br><small style="color:var(--text-muted);font-size:.78rem;">ご希望の日時をお知らせください</small></dd></div>
+          <div><dt>定休日</dt><dd>不定休</dd></div>
+          <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/SALON_VITA1030" target="_blank" rel="noopener noreferrer">@SALON_VITA1030</a></dd></div>
+        </dl>
+        <div class="access-btns">
+          <a href="tel:08040400484" class="btn-p">📞 お電話はこちら</a>
+          <a href="https://maps.google.com/?q=北海道石狩市花畔2条1丁目129" target="_blank" rel="noopener noreferrer" class="btn-o-b">地図を開く</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT BANNER ===== -->
+<section id="contact">
+  <div class="container" style="position:relative;z-index:1;">
+    <span class="ct-label">Contact</span>
+    <h2 class="ct-title reveal">お気軽にお問い合わせください</h2>
+    <p class="ct-desc reveal">
+      ご質問・ご相談はお電話またはInstagramのDMにて承っております。<br>
+      初めての方もお気軽にご連絡ください。
+    </p>
+    <div class="ct-btns reveal">
+      <a href="tel:08040400484" class="btn-tel">
+        <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        080-4040-0484
+      </a>
+      <a href="https://www.instagram.com/SALON_VITA1030" target="_blank" rel="noopener noreferrer" class="btn-ig">
+        <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        Instagram DM
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="ft-inner">
+    <div class="ft-top">
+      <div>
+        <span class="ft-brand">AMINT Salon Vita</span>
+        <span class="ft-tag">美と健康を通して、豊かさを目指す。</span>
+      </div>
+      <div class="ft-links">
+        <a href="#concept">About</a>
+        <a href="#menu">Menu</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#products">Products</a>
+        <a href="#access">Access</a>
+        <a href="https://www.instagram.com/SALON_VITA1030" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://amint.co.jp/" target="_blank" rel="noopener noreferrer" style="color:rgba(147,197,253,.5);">株式会社アミン ↗</a>
+      </div>
+    </div>
+    <p class="ft-copy">&copy; 2024 AMINT Salon Vita. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb">
+  <span class="lb-close" id="lbClose">&times;</span>
+  <img src="" alt="" id="lbImg">
+</div>
+
+<script>
+  /* ===== NAV SCROLL ===== */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50), { passive:true });
+
+  /* ===== HAMBURGER ===== */
+  const ham = document.getElementById('ham');
+  const mobMenu = document.getElementById('mobMenu');
+  ham.addEventListener('click', () => { ham.classList.toggle('open'); mobMenu.classList.toggle('open'); });
+  document.querySelectorAll('.ml').forEach(l => l.addEventListener('click', () => { ham.classList.remove('open'); mobMenu.classList.remove('open'); }));
+
+  /* ===== PARALLAX HERO ===== */
+  const heroBg = document.getElementById('heroBg');
+  window.addEventListener('scroll', () => {
+    if (scrollY < innerHeight) heroBg.style.transform = `scale(1.12) translateY(${scrollY * 0.25}px)`;
+  }, { passive:true });
+
+  /* ===== PARTICLES ===== */
+  (() => {
+    const c = document.getElementById('particles');
+    for (let i = 0; i < 28; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      const s = Math.random() * 3 + 2;
+      p.style.cssText = `left:${Math.random()*100}%;width:${s}px;height:${s}px;animation-duration:${Math.random()*14+8}s;animation-delay:${Math.random()*10}s;opacity:${Math.random()*.5+.2}`;
+      c.appendChild(p);
+    }
+  })();
+
+  /* ===== SCROLL REVEAL ===== */
+  const ro = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold:.1, rootMargin:'0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(el => ro.observe(el));
+
+  /* ===== DIVIDER LINES ===== */
+  const lo = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold:.5 });
+  document.querySelectorAll('.s-line').forEach(el => lo.observe(el));
+
+  /* ===== COUNTER ===== */
+  const co = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target, t = +el.dataset.t;
+      let n = 0; const step = t / (1400 / 16);
+      const timer = setInterval(() => { n += step; if (n >= t) { el.textContent = t; clearInterval(timer); } else el.textContent = Math.floor(n); }, 16);
+      co.unobserve(el);
+    });
+  }, { threshold:.5 });
+  document.querySelectorAll('.cnt').forEach(el => co.observe(el));
+
+  /* ===== MENU TABS ===== */
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const tab = btn.dataset.tab;
+      document.querySelectorAll('.menu-card').forEach(card => {
+        const show = tab === 'all' || card.dataset.cat === tab;
+        card.style.display = show ? 'block' : 'none';
+        if (show) { card.style.animation = 'scaleIn .4s ease both'; setTimeout(() => card.style.animation = '', 400); }
+      });
+    });
+  });
+
+  /* ===== GALLERY LIGHTBOX ===== */
+  const lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg'), lbClose = document.getElementById('lbClose');
+  document.querySelectorAll('.gal-item img').forEach(img => {
+    img.addEventListener('click', () => { lbImg.src = img.src; lbImg.alt = img.alt; lb.classList.add('open'); document.body.style.overflow = 'hidden'; });
+  });
+  const closeLb = () => { lb.classList.remove('open'); document.body.style.overflow = ''; };
+  lbClose.addEventListener('click', closeLb);
+  lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+</script>
+</body>
+</html>
