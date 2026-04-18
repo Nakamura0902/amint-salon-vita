@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>取り扱い商品 | AMINT Salon Vita</title>
+  <meta name="description" content="AMINT Salon Vita 取り扱い商品。DIFACE・LUVIA RUSHE・A-mint Cosmetics と高品質サプリメントをご紹介。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="public/css/site.css">
+  <style>
+    #cosmetics{background:var(--off-white)}
+    .prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem}
+    @media(max-width:900px){.prod-grid{grid-template-columns:1fr}}
+    @media(min-width:560px) and (max-width:900px){.prod-grid{grid-template-columns:repeat(2,1fr)}}
+    .prod-card{background:white;border-radius:6px;overflow:hidden;transition:transform .4s var(--ease),box-shadow .4s;display:block;color:inherit}
+    .prod-card:hover{transform:translateY(-6px);box-shadow:0 24px 56px rgba(37,99,235,.12)}
+    .prod-img{aspect-ratio:4/3;overflow:hidden}
+    .prod-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+    .prod-card:hover .prod-img img{transform:scale(1.07)}
+    .prod-body{padding:1.6rem}
+    .prod-brand{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-style:italic;color:var(--text-dark);margin-bottom:.4rem;letter-spacing:.06em}
+    .prod-body p{font-size:.82rem;color:var(--text-muted);line-height:1.9;margin-bottom:1rem}
+    .prod-hint{display:inline-flex;align-items:center;gap:.35rem;font-size:.75rem;color:var(--blue-600);font-weight:500;transition:gap .3s}
+    .prod-card:hover .prod-hint{gap:.6rem}
+    .prod-tag-row{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1rem}
+    .prod-tag{font-size:.65rem;padding:.2rem .7rem;background:var(--blue-50);color:var(--blue-700);border:1px solid var(--blue-100);border-radius:50px}
+
+    #supplements{background:white}
+    .supp-intro{text-align:center;max-width:580px;margin:0 auto 3.5rem;font-size:.88rem;color:var(--text-muted);line-height:2}
+    .supp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+    @media(max-width:900px){.supp-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:500px){.supp-grid{grid-template-columns:1fr}}
+    .supp-card{background:var(--off-white);border-radius:6px;padding:1.8rem;border:1px solid var(--blue-100);position:relative;overflow:hidden;transition:transform .35s var(--ease),box-shadow .35s,border-color .35s}
+    .supp-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(to right,var(--blue-500),var(--blue-300));transform:scaleX(0);transform-origin:left;transition:transform .4s}
+    .supp-card:hover{transform:translateY(-4px);box-shadow:0 16px 44px rgba(37,99,235,.09);border-color:var(--blue-200)}
+    .supp-card:hover::before{transform:scaleX(1)}
+    .supp-icon{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--blue-100),var(--blue-200));display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:1.2rem}
+    .supp-name{font-family:'Noto Serif JP',serif;font-size:1rem;color:var(--text-dark);margin-bottom:.5rem}
+    .supp-desc{font-size:.78rem;color:var(--text-muted);line-height:1.85}
+    .supp-note{font-size:.68rem;color:var(--blue-500);margin-top:.75rem;font-style:italic}
+    .supp-cta{display:block;text-align:center;margin-top:3rem}
+
+    .section-divider{height:1px;background:linear-gradient(to right,transparent,var(--blue-200),transparent);margin:0 auto;max-width:600px}
+  </style>
+</head>
+<body>
+
+<nav id="nav" class="page-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">AMINT Salon Vita</a>
+    <ul class="nav-links">
+      <li><a href="index.html#concept">About</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="index.html#gallery">Gallery</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="index.html#access">Access</a></li>
+      <li><a href="https://amint.co.jp/" target="_blank" rel="noopener noreferrer" class="nav-ext">本社サイト ↗</a></li>
+    </ul>
+    <div class="ham" id="ham"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<div class="mob-menu" id="mobMenu">
+  <a href="index.html" class="ml">Home</a>
+  <a href="index.html#concept" class="ml">About</a>
+  <a href="menu.html" class="ml">Menu</a>
+  <a href="index.html#gallery" class="ml">Gallery</a>
+  <a href="products.html" class="ml">Products</a>
+  <a href="index.html#access" class="ml">Access</a>
+  <a href="tel:08040400484" class="ml">Tel</a>
+  <a href="https://amint.co.jp/" target="_blank" rel="noopener noreferrer" class="ml" style="font-size:1.4rem;color:var(--blue-300);">本社サイト ↗</a>
+</div>
+
+<div class="page-header">
+  <span class="page-header-label">Products</span>
+  <h1>取り扱い商品</h1>
+</div>
+
+<!-- ===== COSMETICS ===== -->
+<section id="cosmetics">
+  <div class="container">
+    <div style="text-align:center;" class="reveal">
+      <span class="s-label">Cosmetics</span>
+      <h2 class="s-title">コスメブランド</h2>
+      <div class="s-line cx"></div>
+      <p style="font-size:.88rem;color:var(--text-muted);margin-bottom:3rem;max-width:520px;margin-left:auto;margin-right:auto;line-height:2;">
+        施術の効果をご自宅でも継続できるよう、厳選した高品質コスメをご提供しています。
+      </p>
+    </div>
+    <div class="prod-grid">
+      <a href="https://amint.co.jp/diface-essence/" target="_blank" rel="noopener noreferrer" class="prod-card reveal d1">
+        <div class="prod-img"><img src="public/images/product-diface.jpg" alt="DIFACE"></div>
+        <div class="prod-body">
+          <p class="prod-brand">DIFACE</p>
+          <div class="prod-tag-row">
+            <span class="prod-tag">フェイスケア</span>
+            <span class="prod-tag">高機能</span>
+          </div>
+          <p>独自開発の高機能フェイスケアブランド。日本の美意識を大切にした繊細な処方で、肌本来の力を引き出します。サロン施術との相乗効果を最大化。</p>
+          <span class="prod-hint">amint.co.jp で詳細を見る →</span>
+        </div>
+      </a>
+      <a href="https://store.amint.co.jp/products/list?category_id=96" target="_blank" rel="noopener noreferrer" class="prod-card reveal d2">
+        <div class="prod-img"><img src="public/images/product-cosmetics.jpg" alt="LUVIA RUSHE"></div>
+        <div class="prod-body">
+          <p class="prod-brand">LUVIA RUSHE</p>
+          <div class="prod-tag-row">
+            <span class="prod-tag">スキンケア</span>
+            <span class="prod-tag">サプリメント</span>
+          </div>
+          <p>スキンケアと美容サプリを展開するトータルビューティブランド。外側と内側の両面からアプローチし、美しさを持続させます。</p>
+          <span class="prod-hint">store.amint.co.jp で詳細を見る →</span>
+        </div>
+      </a>
+      <a href="https://amint.co.jp/amintcosme/" target="_blank" rel="noopener noreferrer" class="prod-card reveal d3">
+        <div class="prod-img"><img src="public/images/product-supplement.jpg" alt="A-mint Cosmetics"></div>
+        <div class="prod-body">
+          <p class="prod-brand">A-mint Cosmetics</p>
+          <div class="prod-tag-row">
+            <span class="prod-tag">オリジナル</span>
+            <span class="prod-tag">サロン開発</span>
+          </div>
+          <p>サロン発のオリジナルコスメライン。肌に寄り添う成分と使い心地にこだわり、毎日のスキンケアを豊かにします。</p>
+          <span class="prod-hint">amint.co.jp で詳細を見る →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="wave-wrap" style="background:white;">
+  <svg viewBox="0 0 1200 80" preserveAspectRatio="none" height="80"><path d="M0,40 C200,80 400,0 600,40 C800,80 1000,10 1200,40 L1200,80 L0,80 Z" fill="var(--off-white)"/></svg>
+</div>
+
+<!-- ===== SUPPLEMENTS ===== -->
+<section id="supplements">
+  <div class="container">
+    <div style="text-align:center;" class="reveal">
+      <span class="s-label">Supplements</span>
+      <h2 class="s-title">サプリメント</h2>
+      <div class="s-line cx"></div>
+    </div>
+    <p class="supp-intro reveal">
+      内側からの美容をサポートする高品質サプリメントをご用意しています。<br>
+      サロンでの施術と合わせてご活用いただくことで、より高い相乗効果が期待できます。<br>
+      詳しくはスタッフまでお気軽にご相談ください。
+    </p>
+    <div class="supp-grid">
+      <div class="supp-card reveal d1">
+        <div class="supp-icon">✦</div>
+        <h3 class="supp-name">Dr.ENZYME NMN</h3>
+        <p class="supp-desc">細胞レベルからエイジングケアをサポートするNMN（ニコチンアミドモノヌクレオチド）配合の高品質サプリ。</p>
+        <p class="supp-note">詳細はスタッフまでお問い合わせください</p>
+      </div>
+      <div class="supp-card reveal d2">
+        <div class="supp-icon">◈</div>
+        <h3 class="supp-name">フコイダン</h3>
+        <p class="supp-desc">沖縄産もずくから抽出した高純度フコイダンを配合。免疫力サポートと美容・健康の維持をトータルサポート。</p>
+        <p class="supp-note">詳細はスタッフまでお問い合わせください</p>
+      </div>
+      <div class="supp-card reveal d3">
+        <div class="supp-icon">❋</div>
+        <h3 class="supp-name">TOPFIT</h3>
+        <p class="supp-desc">体のパフォーマンスを高める栄養素を凝縮配合。アクティブに過ごしたい方の毎日をサポートします。</p>
+        <p class="supp-note">詳細はスタッフまでお問い合わせください</p>
+      </div>
+      <div class="supp-card reveal d4">
+        <div class="supp-icon">◉</div>
+        <h3 class="supp-name">Delyq</h3>
+        <p class="supp-desc">美容と健康を意識した方のための栄養補助食品。厳選された成分が毎日の美容習慣をサポートします。</p>
+        <p class="supp-note">詳細はスタッフまでお問い合わせください</p>
+      </div>
+      <div class="supp-card reveal d5">
+        <div class="supp-icon">⬡</div>
+        <h3 class="supp-name">NANSHOT</h3>
+        <p class="supp-desc">ナノサイズの美容成分を配合したショット型サプリ。吸収効率の高さが特徴で、忙しい日常での手軽なケアに。</p>
+        <p class="supp-note">詳細はスタッフまでお問い合わせください</p>
+      </div>
+      <div class="supp-card reveal d6">
+        <div class="supp-icon">✿</div>
+        <h3 class="supp-name">BHC</h3>
+        <p class="supp-desc">バランスの取れた成分設計で、体の内側からの美容をホリスティックにケア。継続することで変化を実感。</p>
+        <p class="supp-note">詳細はスタッフまでお問い合わせください</p>
+      </div>
+    </div>
+    <div class="supp-cta reveal">
+      <a href="https://store.amint.co.jp/products/list?category_id=96" target="_blank" rel="noopener noreferrer" class="btn-o-b">LUVIA RUSHE オンラインストアを見る ↗</a>
+    </div>
+  </div>
+</section>
+
+<section style="background:linear-gradient(135deg,var(--blue-700),var(--blue-900));padding:5rem 1.5rem;text-align:center;position:relative;overflow:hidden;">
+  <div style="position:absolute;width:800px;height:800px;border-radius:50%;background:rgba(255,255,255,.02);top:-400px;left:50%;transform:translateX(-50%);"></div>
+  <div class="container" style="position:relative;z-index:1;">
+    <span style="display:block;font-family:'Cormorant Garamond',serif;font-size:.72rem;letter-spacing:.45em;text-transform:uppercase;color:var(--blue-300);margin-bottom:1rem;">Contact</span>
+    <h2 style="font-family:'Noto Serif JP',serif;font-size:clamp(1.3rem,3vw,1.8rem);font-weight:300;color:white;margin-bottom:1rem;">商品についてのご相談</h2>
+    <p style="font-size:.87rem;color:rgba(255,255,255,.58);line-height:2;margin-bottom:2rem;">
+      商品の詳細・ご購入についてはお電話またはInstagram DMにてお気軽にご相談ください。
+    </p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <a href="tel:08040400484" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2.4rem;border:1.5px solid rgba(255,255,255,.4);color:white;font-size:.82rem;border-radius:50px;font-family:'Noto Sans JP',sans-serif;letter-spacing:.06em;" >
+        📞 080-4040-0484
+      </a>
+      <a href="https://www.instagram.com/SALON_VITA1030" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2.4rem;background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);color:white;font-size:.82rem;border-radius:50px;font-family:'Noto Sans JP',sans-serif;letter-spacing:.06em;">
+        📷 Instagram DM
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft-inner">
+    <div class="ft-top">
+      <div>
+        <span class="ft-brand">AMINT Salon Vita</span>
+        <span class="ft-tag">美と健康を通して、豊かさを目指す。</span>
+      </div>
+      <div class="ft-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#concept">About</a>
+        <a href="menu.html">Menu</a>
+        <a href="index.html#gallery">Gallery</a>
+        <a href="products.html">Products</a>
+        <a href="index.html#access">Access</a>
+        <a href="https://www.instagram.com/SALON_VITA1030" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://amint.co.jp/" target="_blank" rel="noopener noreferrer" style="color:rgba(147,197,253,.5);">株式会社アミン ↗</a>
+      </div>
+    </div>
+    <p class="ft-copy">&copy; 2025 AMINT Salon Vita. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  const ham = document.getElementById('ham'), mobMenu = document.getElementById('mobMenu');
+  ham.addEventListener('click', () => { ham.classList.toggle('open'); mobMenu.classList.toggle('open'); });
+  document.querySelectorAll('.ml').forEach(l => l.addEventListener('click', () => { ham.classList.remove('open'); mobMenu.classList.remove('open'); }));
+
+  const ro = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold:.1, rootMargin:'0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => ro.observe(el));
+
+  const lo = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold:.5 });
+  document.querySelectorAll('.s-line').forEach(el => lo.observe(el));
+</script>
+</body>
+</html>

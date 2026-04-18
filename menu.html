@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>メニュー | AMINT Salon Vita</title>
+  <meta name="description" content="AMINT Salon Vita のメニュー一覧。フェイスケア・ボディケア・温活ケア・ハンドケアをご用意しています。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="public/css/site.css">
+  <style>
+    .menu-notice{background:rgba(37,99,235,.05);border:1px solid var(--blue-200);border-radius:8px;padding:1rem 1.5rem;text-align:center;font-size:.82rem;color:var(--text-muted);margin-bottom:2.5rem}
+    .menu-tabs{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;margin-bottom:3rem}
+    .tab-btn{padding:.5rem 1.4rem;border-radius:50px;font-size:.78rem;letter-spacing:.05em;border:1.5px solid var(--blue-200);background:white;color:var(--text-muted);cursor:pointer;transition:all .3s;font-family:'Noto Sans JP',sans-serif}
+    .tab-btn:hover{border-color:var(--blue-400);color:var(--blue-600)}
+    .tab-btn.active{background:var(--blue-600);border-color:var(--blue-600);color:white;box-shadow:0 4px 14px rgba(37,99,235,.28)}
+    .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+    @media(max-width:1000px){.menu-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:600px){.menu-grid{grid-template-columns:1fr}}
+    .menu-card{background:white;border-radius:8px;padding:1.75rem;border:1px solid transparent;position:relative;overflow:hidden;transition:transform .35s var(--ease),box-shadow .35s,border-color .35s}
+    .menu-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(to right,var(--blue-500),var(--blue-300));transform:scaleX(0);transform-origin:left;transition:transform .4s}
+    .menu-card:hover{transform:translateY(-3px);box-shadow:0 14px 38px rgba(37,99,235,.1);border-color:var(--blue-100)}
+    .menu-card:hover::after{transform:scaleX(1)}
+    .menu-card-hd{display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem;margin-bottom:.7rem}
+    .menu-card h3{font-family:'Noto Serif JP',serif;font-size:.98rem;font-weight:400;color:var(--text-dark)}
+    .menu-tag{font-size:.62rem;background:linear-gradient(135deg,var(--blue-100),var(--blue-200));color:var(--blue-800);padding:.22rem .7rem;border-radius:50px;white-space:nowrap;font-weight:500}
+    .menu-time{font-size:.73rem;color:var(--blue-500);margin-bottom:.4rem}
+    .menu-price{font-size:.73rem;color:var(--text-muted);margin-bottom:.75rem}
+    .menu-desc{font-size:.8rem;color:var(--text-muted);line-height:1.85}
+    .cat-heading{grid-column:1/-1;display:flex;align-items:center;gap:1rem;margin-top:1rem}
+    .cat-heading h3{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--text-dark);letter-spacing:.12em;white-space:nowrap}
+    .cat-heading::after{content:'';flex:1;height:1px;background:linear-gradient(to right,var(--blue-200),transparent)}
+    section{background:var(--blue-50)}
+  </style>
+</head>
+<body>
+
+<nav id="nav" class="page-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">AMINT Salon Vita</a>
+    <ul class="nav-links">
+      <li><a href="index.html#concept">About</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="index.html#gallery">Gallery</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="index.html#access">Access</a></li>
+      <li><a href="https://amint.co.jp/" target="_blank" rel="noopener noreferrer" class="nav-ext">本社サイト ↗</a></li>
+    </ul>
+    <div class="ham" id="ham"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<div class="mob-menu" id="mobMenu">
+  <a href="index.html" class="ml">Home</a>
+  <a href="index.html#concept" class="ml">About</a>
+  <a href="menu.html" class="ml">Menu</a>
+  <a href="index.html#gallery" class="ml">Gallery</a>
+  <a href="products.html" class="ml">Products</a>
+  <a href="index.html#access" class="ml">Access</a>
+  <a href="tel:08040400484" class="ml">Tel</a>
+  <a href="https://amint.co.jp/" target="_blank" rel="noopener noreferrer" class="ml" style="font-size:1.4rem;color:var(--blue-300);">本社サイト ↗</a>
+</div>
+
+<div class="page-header">
+  <span class="page-header-label">Menu</span>
+  <h1>施術メニュー</h1>
+</div>
+
+<section>
+  <div class="container">
+    <div style="text-align:center;" class="reveal">
+      <div class="menu-notice">
+        料金はメニューの組み合わせやコース内容により異なります。<br>
+        詳しくはお電話またはInstagramよりお気軽にお問い合わせください。
+      </div>
+      <div class="menu-tabs">
+        <button class="tab-btn active" data-tab="all">すべて</button>
+        <button class="tab-btn" data-tab="face">フェイスケア</button>
+        <button class="tab-btn" data-tab="body">ボディケア</button>
+        <button class="tab-btn" data-tab="onkatsu">温活ケア</button>
+        <button class="tab-btn" data-tab="hand">ハンドケア</button>
+      </div>
+    </div>
+
+    <div class="menu-grid" id="menuGrid">
+
+      <!-- フェイスケア -->
+      <div class="cat-heading face-head"><h3>フェイスケア</h3></div>
+
+      <div class="menu-card reveal d1" data-cat="face">
+        <div class="menu-card-hd"><h3>シュールフェイス</h3><span class="menu-tag">人気No.1</span></div>
+        <p class="menu-time">所要時間：40分〜</p>
+        <p class="menu-price">料金：お問い合わせください</p>
+        <p class="menu-desc">Refine SurRealのフェイスソニック・EMS・イオン導入を組み合わせた顔専用トータルトリートメント。リフトアップ・ハリ・ツヤを引き出します。</p>
+      </div>
+
+      <div class="menu-card reveal d2" data-cat="face">
+        <div class="menu-card-hd"><h3>シュールフェイシャル</h3></div>
+        <p class="menu-time">所要時間：50分〜</p>
+        <p class="menu-price">料金：お問い合わせください</p>
+        <p class="menu-desc">フェイスソニック×EMS×ラジオ波の複合ケアで、深部からアプローチ。フェイスラインのすっきりとした引き締めを目指します。</p>
+      </div>
+
+      <div class="menu-card reveal d3" data-cat="face">
+        <div class="menu-card-hd"><h3>クイックリーリング</h3></div>
+        <p class="menu-time">所要時間：30分〜</p>
+        <p class="menu-price">料金：お問い合わせください</p>
+        <p class="menu-desc">短時間で即効性を実感できる入門フェイスコース。忙しい方にもおすすめ。クール機能でお肌を引き締め、透明感をプラス。</p>
+      </div>
+
+      <!-- ボディケア -->
+      <div class="cat-heading body-head"><h3>ボディケア</h3></div>
+
+      <div class="menu-card reveal d1" data-cat="body">
+        <div class="menu-card-hd"><h3>シュールムービング</h3><span class="menu-tag">おすすめ</span></div>
+        <p class="menu-time">所要時間：60分〜</p>
+        <p class="menu-price">料金：お問い合わせください</p>
+        <p class="menu-desc">EMS×セルラーボディ×Wボディソニックで全身を動かすように刺激。むくみ・冷え・体のだるさにアプローチします。</p>
+      </div>
+
+      <div class="menu-card reveal d2" data-cat="body">
+        <div class="menu-card-hd"><h3>シュールベスト</h3></div>
+        <p class="menu-time">所要時間：60分〜</p>
+        <p class="menu-price">料金：お問い合わせください</p>
+        <p class="menu-desc">キャビテーション×ラジオ波×EMS。気になるウエスト・二の腕・背中を中心に集中ケア。体のラインを整えます。</p>
+      </div>
+
+      <div class="menu-card reveal d3" data-cat="body">
+        <div class="menu-card-hd"><h3>シュールレッグ</h3></div>
+        <p class="menu-time">所要時間：40分〜</p>
+        <p class="menu-price">料金：お問い合わせください</p>
+        <p class="menu-desc">脚全体のむくみ・セルライト・冷えにアプローチ。ふくらはぎ・太もも・ヒップラインまでトータルにケアします。</p>
+      </div>
+
+      <div class="menu-card reveal d4" data-cat="body">
+        <div class="menu-card-hd"><h3>トリプル複合ボディ</h3></div>
+        <p class="menu-time">所要時間：75分〜</p>
+        <p class="menu-price">料金：お問い合わせください</p>
+        <p class="menu-desc">Wボディソニック×キャビテーション×EMSを組み合わせた上級ボディコース。効果的な三重アプローチで全身をリシェイプ。</p>
+      </div>
+
+      <!-- 温活ケア -->
+      <div class="cat-heading onkatsu-head"><h3>温活ケア</h3></div>
+
+      <div class="menu-card reveal d1" data-cat="onkatsu">
+        <div class="menu-card-hd"><h3>ラヴィアーレ45</h3><span class="menu-tag">定番</span></div>
+        <p class="menu-time">所要時間：45分</p>
+        <p class="menu-price">料金：お問い合わせください</p>
+        <p class="menu-desc">RefireDome DXで45分間じっくりと体の芯から温活。遠赤外線の効果で発汗・デトックスを促し、代謝をアップします。</p>
+      </div>
+
+      <div class="menu-card reveal d2" data-cat="onkatsu">
+        <div class="menu-card-hd"><h3>ラヴィアーレ U.S.</h3></div>
+        <p class="menu-time">所要時間：60分〜</p>
+        <p class="menu-price">料金：お問い合わせください</p>
+        <p class="menu-desc">RefireDome DX × SurReal 超音波の上位コース。温熱で開いた毛穴に超音波を組み合わせ、より深部への美容成分導入と身体ケアを同時に実現。</p>
+      </div>
+
+      <!-- ハンドケア -->
+      <div class="cat-heading hand-head"><h3>ハンドケア</h3></div>
+
+      <div class="menu-card reveal d1" data-cat="hand">
+        <div class="menu-card-hd"><h3>全身ハンドリンパ</h3><span class="menu-tag">おすすめ</span></div>
+        <p class="menu-time">所要時間：60分〜</p>
+        <p class="menu-price">料金：お問い合わせください</p>
+        <p class="menu-desc">ビューティシャンが全身のリンパの流れを丁寧に整えるハンドマッサージ。老廃物を流し、むくみ・重だるさを解消します。</p>
+      </div>
+
+      <div class="menu-card reveal d2" data-cat="hand">
+        <div class="menu-card-hd"><h3>部分ハンドケア</h3></div>
+        <p class="menu-time">所要時間：30分〜</p>
+        <p class="menu-price">料金：お問い合わせください</p>
+        <p class="menu-desc">気になる部分を集中してケアするハンドマッサージ。背中・二の腕・脚・フェイスなど、お悩みの箇所をご指定ください。</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="background:linear-gradient(135deg,var(--blue-700),var(--blue-900));padding:5rem 1.5rem;text-align:center;position:relative;overflow:hidden;">
+  <div style="position:absolute;width:800px;height:800px;border-radius:50%;background:rgba(255,255,255,.02);top:-400px;left:50%;transform:translateX(-50%);"></div>
+  <div class="container" style="position:relative;z-index:1;">
+    <span class="ct-label" style="display:block;font-family:'Cormorant Garamond',serif;font-size:.72rem;letter-spacing:.45em;text-transform:uppercase;color:var(--blue-300);margin-bottom:1rem;">Contact</span>
+    <h2 style="font-family:'Noto Serif JP',serif;font-size:clamp(1.3rem,3vw,1.8rem);font-weight:300;color:white;margin-bottom:1rem;">ご予約・お問い合わせ</h2>
+    <p style="font-size:.87rem;color:rgba(255,255,255,.58);line-height:2;margin-bottom:2rem;">
+      メニューの詳細・料金はお電話またはInstagram DMにてお気軽にどうぞ。
+    </p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <a href="tel:08040400484" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2.4rem;border:1.5px solid rgba(255,255,255,.4);color:white;font-size:.82rem;border-radius:50px;font-family:'Noto Sans JP',sans-serif;letter-spacing:.06em;transition:all .3s;" onmouseover="this.style.background='rgba(255,255,255,.1)'" onmouseout="this.style.background=''">
+        📞 080-4040-0484
+      </a>
+      <a href="https://www.instagram.com/SALON_VITA1030" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2.4rem;background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);color:white;font-size:.82rem;border-radius:50px;font-family:'Noto Sans JP',sans-serif;letter-spacing:.06em;transition:all .3s;">
+        📷 Instagram DM
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft-inner">
+    <div class="ft-top">
+      <div>
+        <span class="ft-brand">AMINT Salon Vita</span>
+        <span class="ft-tag">美と健康を通して、豊かさを目指す。</span>
+      </div>
+      <div class="ft-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#concept">About</a>
+        <a href="menu.html">Menu</a>
+        <a href="index.html#gallery">Gallery</a>
+        <a href="products.html">Products</a>
+        <a href="index.html#access">Access</a>
+        <a href="https://www.instagram.com/SALON_VITA1030" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://amint.co.jp/" target="_blank" rel="noopener noreferrer" style="color:rgba(147,197,253,.5);">株式会社アミン ↗</a>
+      </div>
+    </div>
+    <p class="ft-copy">&copy; 2025 AMINT Salon Vita. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  const ham = document.getElementById('ham'), mobMenu = document.getElementById('mobMenu');
+  ham.addEventListener('click', () => { ham.classList.toggle('open'); mobMenu.classList.toggle('open'); });
+  document.querySelectorAll('.ml').forEach(l => l.addEventListener('click', () => { ham.classList.remove('open'); mobMenu.classList.remove('open'); }));
+
+  const ro = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold:.1, rootMargin:'0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => ro.observe(el));
+
+  const lo = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold:.5 });
+  document.querySelectorAll('.s-line').forEach(el => lo.observe(el));
+
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const tab = btn.dataset.tab;
+      const catHeadings = { face: '.face-head', body: '.body-head', onkatsu: '.onkatsu-head', hand: '.hand-head' };
+      document.querySelectorAll('.menu-card').forEach(card => {
+        const show = tab === 'all' || card.dataset.cat === tab;
+        card.style.display = show ? 'block' : 'none';
+        if (show) { card.style.animation = 'scaleIn .4s ease both'; setTimeout(() => card.style.animation = '', 400); }
+      });
+      Object.entries(catHeadings).forEach(([cat, sel]) => {
+        const el = document.querySelector(sel);
+        if (el) el.style.display = (tab === 'all' || tab === cat) ? 'flex' : 'none';
+      });
+    });
+  });
+</script>
+</body>
+</html>
