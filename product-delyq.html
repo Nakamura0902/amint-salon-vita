@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delyq | AMINT Salon Vita</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="public/css/site.css">
+  <style>
+    .dq-hero{background:linear-gradient(135deg,#1a0a1f,#2d1040);padding:8rem 1.5rem;position:relative;overflow:hidden}
+    .dq-hero::before{content:'';position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(167,139,250,.1),transparent 65%);top:50%;right:-100px;transform:translateY(-50%)}
+    .dq-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;position:relative;z-index:1}
+    @media(max-width:900px){.dq-grid{grid-template-columns:1fr;gap:3rem}}
+    .dq-img{border-radius:6px;overflow:hidden;box-shadow:0 40px 80px rgba(167,139,250,.15)}
+    .dq-img img{width:100%;display:block}
+    .dq-purple{color:#c4b5fd;font-family:'Cormorant Garamond',serif;font-size:.72rem;letter-spacing:.45em;text-transform:uppercase;display:block;margin-bottom:.8rem}
+    .dq-name{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,6vw,4.5rem);font-style:italic;font-weight:300;color:white;line-height:1.1;margin-bottom:.5rem}
+    .dq-sub{font-size:.7rem;letter-spacing:.2em;color:rgba(255,255,255,.35);margin-bottom:2rem}
+    .dq-desc{font-size:.9rem;color:rgba(255,255,255,.62);line-height:2.1;margin-bottom:2rem}
+    .dq-combo{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2.5rem}
+    .dq-item{background:rgba(167,139,250,.08);border:1px solid rgba(167,139,250,.2);border-radius:6px;padding:1rem}
+    .dq-item h4{font-family:'Noto Serif JP',serif;font-size:.88rem;color:#c4b5fd;margin-bottom:.4rem}
+    .dq-item p{font-size:.75rem;color:rgba(255,255,255,.5);line-height:1.75}
+    .dq-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2.4rem;background:linear-gradient(135deg,#7c3aed,#6d28d9);color:white;font-size:.82rem;letter-spacing:.08em;border-radius:50px;font-family:'Noto Sans JP',sans-serif;transition:transform .3s,box-shadow .3s}
+    .dq-btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(124,58,237,.35)}
+  </style>
+</head>
+<body>
+<nav id="nav" class="page-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">AMINT Salon Vita</a>
+    <ul class="nav-links">
+      <li><a href="index.html#concept">About</a></li><li><a href="menu.html">Menu</a></li>
+      <li><a href="products.html">Products</a></li><li><a href="index.html#access">Access</a></li>
+      <li><a href="https://amint.co.jp/" target="_blank" rel="noopener noreferrer" class="nav-ext">本社サイト ↗</a></li>
+    </ul>
+    <div class="ham" id="ham"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mob-menu" id="mobMenu">
+  <a href="index.html" class="ml">Home</a><a href="products.html" class="ml">Products</a>
+  <a href="index.html#access" class="ml">Access</a><a href="tel:08040400484" class="ml">Tel</a>
+</div>
+
+<div class="dq-hero">
+  <div class="container">
+    <div class="dq-grid">
+      <div class="reveal-left"><div class="dq-img"><img src="public/images/prod-delyq.png" alt="Delyq"></div></div>
+      <div class="reveal-right">
+        <span class="dq-purple">Body Support Supplement</span>
+        <h1 class="dq-name">Delyq</h1>
+        <p class="dq-sub">Sla III × SIBORT α — ボディサポートコンビ</p>
+        <p class="dq-desc">
+          筋肉・ボディコンディションをサポートする2製品の組み合わせ。<br><br>
+          日常のトレーニングや活動をサポートしながら、
+          体の内側から引き締まったボディラインを目指します。
+          サロンでの施術との相乗効果も期待できます。
+        </p>
+        <div class="dq-combo">
+          <div class="dq-item">
+            <h4>Sla III</h4>
+            <p>筋肉コンディショニングをサポートするドリンクサプリ。毎日の活力を後押し。</p>
+          </div>
+          <div class="dq-item">
+            <h4>SIBORT α</h4>
+            <p>体の内側から整えるカプセルサプリ。ボディラインのサポートに。</p>
+          </div>
+        </div>
+        <a href="tel:08040400484" class="dq-btn">📞 サロンでご相談する</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section style="background:white;padding:5rem 1.5rem;text-align:center;">
+  <div class="container">
+    <p style="font-size:.88rem;color:var(--text-muted);line-height:2;margin-bottom:2rem;">詳細・ご購入についてはサロンにてお気軽にご相談ください。</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <a href="tel:08040400484" class="btn-p">📞 080-4040-0484</a>
+      <a href="https://www.instagram.com/SALON_VITA1030" target="_blank" rel="noopener noreferrer" class="btn-o-b">Instagram DM</a>
+    </div>
+    <div style="margin-top:2rem;"><a href="products.html" style="font-size:.78rem;color:var(--text-muted);">← 商品一覧に戻る</a></div>
+  </div>
+</section>
+
+<footer><div class="ft-inner"><div class="ft-top">
+  <div><span class="ft-brand">AMINT Salon Vita</span><span class="ft-tag">美と健康を通して、豊かさを目指す。</span></div>
+  <div class="ft-links"><a href="index.html">Home</a><a href="products.html">Products</a><a href="index.html#access">Access</a><a href="https://amint.co.jp/" target="_blank" rel="noopener noreferrer" style="color:rgba(147,197,253,.5);">株式会社アミン ↗</a></div>
+</div><p class="ft-copy">&copy; 2025 AMINT Salon Vita. All rights reserved.</p></div></footer>
+<script>
+  const ham=document.getElementById('ham'),mobMenu=document.getElementById('mobMenu');
+  ham.addEventListener('click',()=>{ham.classList.toggle('open');mobMenu.classList.toggle('open');});
+  document.querySelectorAll('.ml').forEach(l=>l.addEventListener('click',()=>{ham.classList.remove('open');mobMenu.classList.remove('open');}));
+  const ro=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el=>ro.observe(el));
+</script>
+</body></html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TOPFIT / TORERT | AMINT Salon Vita</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="public/css/site.css">
+  <style>
+    .sp-img{border-radius:6px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.1)}
+    .sp-img img{width:100%;display:block}
+    .green-hero{background:linear-gradient(135deg,#1a2e1a,#0d1f0d);padding:8rem 1.5rem;position:relative;overflow:hidden}
+    .green-hero::before{content:'';position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(74,222,128,.07),transparent 65%);top:50%;right:-100px;transform:translateY(-50%)}
+    .green-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;position:relative;z-index:1}
+    @media(max-width:900px){.green-grid{grid-template-columns:1fr;gap:3rem}}
+    .g-label{color:#4ade80;font-size:.72rem;letter-spacing:.45em;text-transform:uppercase;display:block;margin-bottom:.8rem;font-family:'Cormorant Garamond',serif}
+    .g-name{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,6vw,4rem);font-style:italic;font-weight:300;color:white;line-height:1.1;margin-bottom:.5rem}
+    .g-sub{font-size:.7rem;letter-spacing:.2em;color:rgba(255,255,255,.35);text-transform:uppercase;margin-bottom:2rem}
+    .g-desc{font-size:.9rem;color:rgba(255,255,255,.62);line-height:2.1;margin-bottom:2rem}
+    .g-points{list-style:none;display:flex;flex-direction:column;gap:.85rem;margin-bottom:2.5rem}
+    .g-points li{display:flex;align-items:flex-start;gap:.8rem;font-size:.86rem;color:rgba(255,255,255,.75);line-height:1.7}
+    .g-points li::before{content:'❋';color:#4ade80;font-size:.7rem;margin-top:.25rem;flex-shrink:0}
+    .g-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2.4rem;background:linear-gradient(135deg,#16a34a,#15803d);color:white;font-size:.82rem;letter-spacing:.08em;border-radius:50px;font-family:'Noto Sans JP',sans-serif;transition:transform .3s,box-shadow .3s}
+    .g-btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(22,163,74,.35)}
+  </style>
+</head>
+<body>
+<nav id="nav" class="page-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">AMINT Salon Vita</a>
+    <ul class="nav-links">
+      <li><a href="index.html#concept">About</a></li><li><a href="menu.html">Menu</a></li>
+      <li><a href="products.html">Products</a></li><li><a href="index.html#access">Access</a></li>
+      <li><a href="https://amint.co.jp/" target="_blank" rel="noopener noreferrer" class="nav-ext">本社サイト ↗</a></li>
+    </ul>
+    <div class="ham" id="ham"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mob-menu" id="mobMenu">
+  <a href="index.html" class="ml">Home</a><a href="products.html" class="ml">Products</a>
+  <a href="index.html#access" class="ml">Access</a><a href="tel:08040400484" class="ml">Tel</a>
+</div>
+
+<div class="green-hero">
+  <div class="container">
+    <div class="green-grid">
+      <div class="reveal-left"><div class="sp-img"><img src="public/images/prod-topfit.png" alt="TOPFIT / TORERT"></div></div>
+      <div class="reveal-right">
+        <span class="g-label">Supplement</span>
+        <h1 class="g-name">TOPFIT<br>TORERT</h1>
+        <p class="g-sub">酵素 × 美容 × 健康サポート</p>
+        <p class="g-desc">
+          グリーンパウダー「TORERT」と「TOPFIT茶」のコンビネーション。<br><br>
+          厳選した酵素・植物由来成分を凝縮し、体の内側から健康と美容を整えます。
+          毎日の習慣に取り入れやすい飲みやすい設計で、継続しやすいのが特徴です。
+        </p>
+        <ul class="g-points">
+          <li>植物由来酵素をたっぷり配合したグリーンパウダー</li>
+          <li>飲みやすいティーとのセットで継続しやすい</li>
+          <li>腸内環境の改善・代謝アップをサポート</li>
+          <li>美容と健康を同時にアプローチ</li>
+        </ul>
+        <a href="tel:08040400484" class="g-btn">📞 サロンでご相談する</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section style="background:white;padding:5rem 1.5rem;text-align:center;">
+  <div class="container">
+    <p style="font-size:.88rem;color:var(--text-muted);line-height:2;margin-bottom:2rem;">詳細・ご購入についてはサロンにてお気軽にご相談ください。</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <a href="tel:08040400484" class="btn-p">📞 080-4040-0484</a>
+      <a href="https://www.instagram.com/SALON_VITA1030" target="_blank" rel="noopener noreferrer" class="btn-o-b">Instagram DM</a>
+    </div>
+    <div style="margin-top:2rem;"><a href="products.html" style="font-size:.78rem;color:var(--text-muted);">← 商品一覧に戻る</a></div>
+  </div>
+</section>
+
+<footer><div class="ft-inner"><div class="ft-top">
+  <div><span class="ft-brand">AMINT Salon Vita</span><span class="ft-tag">美と健康を通して、豊かさを目指す。</span></div>
+  <div class="ft-links"><a href="index.html">Home</a><a href="products.html">Products</a><a href="index.html#access">Access</a><a href="https://amint.co.jp/" target="_blank" rel="noopener noreferrer" style="color:rgba(147,197,253,.5);">株式会社アミン ↗</a></div>
+</div><p class="ft-copy">&copy; 2025 AMINT Salon Vita. All rights reserved.</p></div></footer>
+<script>
+  const ham=document.getElementById('ham'),mobMenu=document.getElementById('mobMenu');
+  ham.addEventListener('click',()=>{ham.classList.toggle('open');mobMenu.classList.toggle('open');});
+  document.querySelectorAll('.ml').forEach(l=>l.addEventListener('click',()=>{ham.classList.remove('open');mobMenu.classList.remove('open');}));
+  const ro=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el=>ro.observe(el));
+</script>
+</body></html>
