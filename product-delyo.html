@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delyo | AMINT Salon Vita</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="public/css/site.css">
+  <style>
+    .dy-hero{background:linear-gradient(135deg,#7a3a00,#b85c00);padding:8rem 1.5rem;position:relative;overflow:hidden}
+    .dy-hero::before{content:'';position:absolute;width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(255,200,50,.1),transparent 65%);top:50%;right:-200px;transform:translateY(-50%)}
+    .dy-hero::after{content:'Delyo';position:absolute;font-family:'Cormorant Garamond',serif;font-size:22vw;font-style:italic;color:rgba(255,255,255,.04);bottom:-2vw;left:-1vw;line-height:1;pointer-events:none;white-space:nowrap}
+    .dy-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;position:relative;z-index:1}
+    @media(max-width:900px){.dy-grid{grid-template-columns:1fr;gap:3rem}}
+    .dy-img{border-radius:6px;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,.3)}
+    .dy-img img{width:100%;display:block}
+    .dy-orange{color:#fbbf24;font-family:'Cormorant Garamond',serif;font-size:.72rem;letter-spacing:.45em;text-transform:uppercase;display:block;margin-bottom:.8rem}
+    .dy-name{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,7vw,5.5rem);font-style:italic;font-weight:300;color:white;line-height:1.05;margin-bottom:.4rem}
+    .dy-sub{font-size:.72rem;letter-spacing:.22em;color:rgba(255,255,255,.45);margin-bottom:2rem;text-transform:uppercase}
+    .dy-desc{font-size:.9rem;color:rgba(255,255,255,.68);line-height:2.1;margin-bottom:2rem}
+    .dy-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2.5rem}
+    .dy-tag{padding:.28rem .9rem;background:rgba(255,200,50,.12);border:1px solid rgba(255,200,50,.3);color:#fde68a;font-size:.7rem;letter-spacing:.08em;border-radius:50px}
+    .dy-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2.4rem;background:linear-gradient(135deg,#d97706,#b45309);color:white;font-size:.82rem;letter-spacing:.08em;border-radius:50px;font-family:'Noto Sans JP',sans-serif;transition:transform .3s,box-shadow .3s}
+    .dy-btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(217,119,6,.4)}
+
+    #dy-features{background:var(--off-white);padding:7rem 1.5rem}
+    .dy-feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+    @media(max-width:700px){.dy-feat-grid{grid-template-columns:1fr}}
+    .dy-feat{background:white;border-radius:6px;padding:2rem;border-top:3px solid #f59e0b;box-shadow:0 4px 20px rgba(0,0,0,.04);transition:transform .3s,box-shadow .3s}
+    .dy-feat:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(245,158,11,.12)}
+    .dy-feat-icon{font-size:1.6rem;margin-bottom:1rem}
+    .dy-feat h3{font-family:'Noto Serif JP',serif;font-size:.95rem;color:var(--text-dark);margin-bottom:.5rem}
+    .dy-feat p{font-size:.8rem;color:var(--text-muted);line-height:1.85}
+  </style>
+</head>
+<body>
+
+<nav id="nav" class="page-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">AMINT Salon Vita</a>
+    <ul class="nav-links">
+      <li><a href="index.html#concept">About</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="index.html#access">Access</a></li>
+      <li><a href="https://amint.co.jp/" target="_blank" rel="noopener noreferrer" class="nav-ext">本社サイト ↗</a></li>
+    </ul>
+    <div class="ham" id="ham"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mob-menu" id="mobMenu">
+  <a href="index.html" class="ml">Home</a>
+  <a href="products.html" class="ml">Products</a>
+  <a href="index.html#access" class="ml">Access</a>
+  <a href="tel:08040400484" class="ml">Tel</a>
+</div>
+
+<div class="dy-hero">
+  <div class="container">
+    <div class="dy-grid">
+      <div class="reveal-left">
+        <div class="dy-img"><img src="public/images/prod-delyo.jpg" alt="Delyo"></div>
+      </div>
+      <div class="reveal-right">
+        <span class="dy-orange">Diet Tea Supplement</span>
+        <h1 class="dy-name">Delyo</h1>
+        <p class="dy-sub">スラット・ダイエットティー</p>
+        <p class="dy-desc">
+          リンゴポリフェノールを配合した、デト茶ダイエットティー。<br><br>
+          毎日の習慣に取り入れやすいティーバッグタイプで、
+          美味しく飲みながら体の内側からデトックスをサポート。<br><br>
+          忙しい日々の中でも続けやすい、スマートなボディケアのお供です。
+        </p>
+        <div class="dy-tags">
+          <span class="dy-tag">リンゴポリフェノール配合</span>
+          <span class="dy-tag">デト茶ダイエット</span>
+          <span class="dy-tag">ティーバッグタイプ</span>
+          <span class="dy-tag">デトックスサポート</span>
+        </div>
+        <a href="tel:08040400484" class="dy-btn">📞 サロンでご相談する</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="dy-features">
+  <div class="container">
+    <div class="reveal" style="text-align:center;">
+      <span class="s-label">Features</span>
+      <h2 class="s-title">Delyo の特徴</h2>
+      <div class="s-line cx"></div>
+    </div>
+    <div class="dy-feat-grid">
+      <div class="dy-feat reveal d1">
+        <div class="dy-feat-icon">🍎</div>
+        <h3>リンゴポリフェノール配合</h3>
+        <p>リンゴ由来のポリフェノールを配合。抗酸化作用でカラダの内側からサポートします。</p>
+      </div>
+      <div class="dy-feat reveal d2">
+        <div class="dy-feat-icon">🍵</div>
+        <h3>デト茶ダイエット</h3>
+        <p>お茶感覚で続けられるダイエットティー。毎日の飲み物として無理なくケアを習慣化。</p>
+      </div>
+      <div class="dy-feat reveal d3">
+        <div class="dy-feat-icon">✦</div>
+        <h3>手軽に続けられる</h3>
+        <p>ティーバッグタイプで場所を選ばず、お湯を注ぐだけ。忙しい方でも続けやすい設計。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:white;padding:5rem 1.5rem;text-align:center;">
+  <div class="container">
+    <p style="font-size:.88rem;color:var(--text-muted);line-height:2;margin-bottom:2rem;">
+      詳細・ご購入についてはサロンにてお気軽にご相談ください。
+    </p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <a href="tel:08040400484" class="btn-p">📞 080-4040-0484</a>
+      <a href="https://www.instagram.com/SALON_VITA1030" target="_blank" rel="noopener noreferrer" class="btn-o-b">Instagram DM</a>
+    </div>
+    <div style="margin-top:2rem;"><a href="products.html" style="font-size:.78rem;color:var(--text-muted);">← 商品一覧に戻る</a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft-inner">
+    <div class="ft-top">
+      <div><span class="ft-brand">AMINT Salon Vita</span><span class="ft-tag">美と健康を通して、豊かさを目指す。</span></div>
+      <div class="ft-links">
+        <a href="index.html">Home</a><a href="menu.html">Menu</a>
+        <a href="products.html">Products</a><a href="index.html#access">Access</a>
+        <a href="https://amint.co.jp/" target="_blank" rel="noopener noreferrer" style="color:rgba(147,197,253,.5);">株式会社アミン ↗</a>
+      </div>
+    </div>
+    <p class="ft-copy">&copy; 2025 AMINT Salon Vita. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  const ham=document.getElementById('ham'),mobMenu=document.getElementById('mobMenu');
+  ham.addEventListener('click',()=>{ham.classList.toggle('open');mobMenu.classList.toggle('open');});
+  document.querySelectorAll('.ml').forEach(l=>l.addEventListener('click',()=>{ham.classList.remove('open');mobMenu.classList.remove('open');}));
+  const ro=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el=>ro.observe(el));
+  const lo=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.5});
+  document.querySelectorAll('.s-line').forEach(el=>lo.observe(el));
+</script>
+</body>
+</html>
