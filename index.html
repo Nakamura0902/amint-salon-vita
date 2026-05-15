@@ -97,8 +97,9 @@
     nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.4rem 2rem;transition:padding .4s var(--ease),background .4s var(--ease),box-shadow .4s var(--ease)}
     nav.scrolled{background:rgba(255,255,255,.93);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 1px 24px rgba(30,58,138,.07);padding:.9rem 2rem}
     .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
-    .nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.25rem;letter-spacing:.18em;color:white;transition:color .4s}
-    nav.scrolled .nav-logo{color:var(--text-dark)}
+    .nav-logo{display:inline-flex;align-items:center}
+    .nav-logo img{height:52px;width:auto;border-radius:5px;display:block;transition:opacity .3s}
+    .nav-logo:hover img{opacity:.8}
     .nav-links{display:flex;gap:2rem;list-style:none}
     .nav-links a{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.85);transition:color .3s;position:relative}
     .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--blue-400);transition:width .3s}
@@ -318,7 +319,7 @@
 <!-- ===== NAV ===== -->
 <nav id="nav">
   <div class="nav-inner">
-    <a href="#hero" class="nav-logo">AMINT Salon Vita</a>
+    <a href="#hero" class="nav-logo"><img src="public/images/logo.jpg" alt="AMINT Salon Vita"></a>
     <ul class="nav-links">
       <li><a href="#concept">About</a></li>
       <li><a href="menu.html">Menu</a></li>
