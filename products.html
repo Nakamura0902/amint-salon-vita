@@ -6,7 +6,7 @@
   <title>取り扱い商品 | AMINT Salon Vita</title>
   <link rel="icon" type="image/jpeg" href="/public/images/icon.jpg">
   <link rel="canonical" href="https://www.amint-salon-vita.com/products.html">
-  <meta name="description" content="AMINT Salon Vita 取り扱い商品。DIFACE・LUVIA RUSHE・A-mint Cosmetics と高品質サプリメントをご紹介。">
+  <meta name="description" content="AMINT Salon Vita 取り扱い商品。DIFACE・LUVIA RUSHE・A-mint Cosmetics、高品質サプリメント、業務用光美容器 Refine Self-e をご紹介。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
@@ -44,6 +44,29 @@
     .supp-body p{font-size:.75rem;color:var(--text-muted);line-height:1.75;margin-bottom:.7rem}
     .supp-hint{display:inline-flex;align-items:center;gap:.3rem;font-size:.7rem;color:var(--blue-500);transition:gap .3s}
     .supp-card:hover .supp-hint{gap:.55rem}
+
+    #device{background:var(--off-white)}
+    .device-feature{display:grid;grid-template-columns:1fr 1.1fr;gap:3.5rem;align-items:center;max-width:1000px;margin:0 auto}
+    @media(max-width:760px){.device-feature{grid-template-columns:1fr;gap:2rem}}
+    .device-img{border-radius:8px;overflow:hidden;background:#0a0a0a;aspect-ratio:4/5;box-shadow:0 24px 56px rgba(0,0,0,.18)}
+    .device-img img{width:100%;height:100%;object-fit:cover}
+    .device-badge{display:inline-block;font-size:.6rem;padding:.25rem .8rem;border-radius:50px;letter-spacing:.1em;font-weight:500;background:linear-gradient(135deg,#1f2937,#4b5563);color:white;margin-bottom:1rem}
+    .device-name{font-family:'Cormorant Garamond',serif;font-size:2.1rem;font-style:italic;color:var(--text-dark);letter-spacing:.05em;margin-bottom:.3rem;line-height:1.2}
+    .device-sub{font-family:'Noto Serif JP',serif;font-size:.95rem;color:var(--blue-700);margin-bottom:1.3rem}
+    .device-desc{font-size:.83rem;color:var(--text-muted);line-height:2;margin-bottom:1.4rem}
+    .device-points{display:flex;gap:.55rem;flex-wrap:wrap;margin-bottom:1.5rem}
+    .device-points span{font-size:.71rem;padding:.35rem .9rem;border-radius:50px;background:white;color:var(--text-dark);border:1px solid #e8e8e8}
+    .device-price{display:flex;align-items:baseline;gap:.8rem;flex-wrap:wrap;margin-bottom:1.3rem}
+    .device-price .now{font-family:'Noto Serif JP',serif;font-size:1.55rem;color:var(--blue-700);font-weight:600}
+    .device-price .now small{font-size:.72rem;color:var(--text-muted);font-weight:400;margin-left:.2rem}
+    .device-price .was{font-size:.78rem;color:var(--text-muted);text-decoration:line-through}
+    .device-specs{font-size:.74rem;color:var(--text-muted);line-height:1.95;border-top:1px solid #e8e8e8;padding-top:1.1rem}
+    .device-specs dt{font-weight:500;color:var(--text-dark)}
+    .device-probe{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.2rem}
+    @media(max-width:480px){.device-probe{grid-template-columns:1fr}}
+    .device-probe .pb{background:white;border:1px solid #e8e8e8;border-radius:6px;padding:.9rem 1rem}
+    .device-probe .pb h4{font-family:'Noto Serif JP',serif;font-size:.8rem;color:var(--text-dark);margin-bottom:.35rem}
+    .device-probe .pb p{font-size:.72rem;color:var(--text-muted);line-height:1.7;margin:0}
   </style>
 </head>
 <body>
@@ -189,6 +212,62 @@
         <div class="supp-body">
           <h3>Delyo</h3>
           <p>リンゴポリフェノール配合のデト茶ダイエットティー。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-wrap" style="background:white;">
+  <svg viewBox="0 0 1200 80" preserveAspectRatio="none" height="80"><path d="M0,40 C200,80 400,0 600,40 C800,80 1000,10 1200,40 L1200,80 L0,80 Z" fill="var(--off-white)"/></svg>
+</div>
+
+<!-- BEAUTY DEVICE -->
+<section id="device">
+  <div class="container">
+    <div style="text-align:center;" class="reveal">
+      <span class="s-label">Beauty Device</span>
+      <h2 class="s-title">美容機器</h2>
+      <div class="s-line cx"></div>
+      <p style="font-size:.87rem;color:var(--text-muted);margin-bottom:3rem;line-height:2;max-width:520px;margin-left:auto;margin-right:auto;">
+        サロンレベルのケアをご家庭で。リムーブケアとフォトケアを1台で叶える業務用光美容器。
+      </p>
+    </div>
+    <div class="device-feature reveal">
+      <div class="device-img"><img src="public/images/prod-selfe.png" alt="Refine Self-e 業務用光美容器"></div>
+      <div>
+        <span class="device-badge">Beauty Device</span>
+        <p class="device-name">Self-e</p>
+        <p class="device-sub">Refine 業務用光美容器 ｜ デュアル仕様</p>
+        <p class="device-desc">
+          リムーブケア（ムダ毛処理）とフォトケア（美肌・美ボディ）を1台に搭載。
+          約30万発のサファイヤガラスフィルター搭載で、薬剤・ジェル不要。
+          人目を気にせず、家族で使えるプロ品質のセルフケアを。
+        </p>
+        <div class="device-points">
+          <span>リムーブケア</span>
+          <span>フォトケア</span>
+          <span>約30万発</span>
+          <span>クール機能</span>
+          <span>オート / マニュアル</span>
+        </div>
+        <div class="device-price">
+          <span class="now">特別価格 ¥178,000<small>（税込 ¥195,800）</small></span>
+          <span class="was">通常 ¥218,000</span>
+        </div>
+        <dl class="device-specs">
+          <dt>仕様</dt>
+          <dd>定格電圧 AC100〜240V ／ 50・60Hz ／ 本体サイズ W225×D248×H322mm ／ 質量 本体約2.5kg・プローブ約0.52kg ／ コード長 各約1.8m</dd>
+        </dl>
+        <div class="device-probe">
+          <div class="pb">
+            <h4>フォトプローブ（白）</h4>
+            <p>美肌・美ボディ用<br>通常 ¥58,000 ／ メンバーズ ¥48,000</p>
+          </div>
+          <div class="pb">
+            <h4>リムーブプローブ（黒）</h4>
+            <p>ムダ毛処理用 ／ 追加用<br>通常 ¥58,000 ／ メンバーズ ¥48,000</p>
+          </div>
         </div>
       </div>
     </div>
